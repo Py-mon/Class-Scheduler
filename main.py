@@ -1,7 +1,8 @@
 from enum import Enum
 import datetime
-from typing import Optional, Callable
+from typing import Optional, Callable, Any
 import random
+
 
 class Weekdays(Enum):
     Monday = 0
@@ -61,7 +62,7 @@ class Course:
         self.type_ = type_
         self.teacher = teacher
         self.days = days
-        
+
     def __repr__(self) -> str:
         return self.name
 
@@ -70,7 +71,6 @@ class Break:
     def __init__(self, name, duration) -> None:
         self.name = name
         self.duration = duration
-
 
 
 # -----,.
@@ -91,6 +91,132 @@ class StudyHall:
 
 # ----
 # detention duty?
+
+import customtkinter as tk
+
+root = tk.CTk()
+
+WIDTH, HEIGHT = 300, 500
+root.geometry(f"{WIDTH}x{HEIGHT}")
+
+frame = tk.CTkScrollableFrame(
+    root,
+    width=WIDTH,
+    height=HEIGHT - 50,
+)
+
+frame._scrollbar.configure(height=0)
+
+
+large = tk.CTkFont(size=18)
+
+
+class Entry:
+    def __init__(self, label: str):
+        global rows
+
+        tk.CTkLabel(frame, text=label).pack()
+
+        self.entry = tk.CTkEntry(frame, width=70)
+
+        self.entry.pack()
+
+
+starting_school_time = Entry("Starting School Time")
+ending_school_time = Entry("Ending School Time")
+
+
+class TableEntry:
+    def __init__(
+        self, title: str, headers: dict[str, tuple[Any, dict[str, Any]]]
+    ):  # make headers dict for nay entry type
+
+        tk.CTkLabel(frame, text=title, font=large).pack()
+        self.table_entry = tk.CTkScrollableFrame(
+            frame,
+            fg_color="gray14",
+            width=400,
+            height=75,
+        )
+        self.table_entry.grid_anchor("center")
+
+        self.table_entry._scrollbar.configure(height=0)
+
+        for i, header in enumerate(headers):
+            tk.CTkLabel(self.table_entry, text=header).grid(row=0, column=i)
+
+        self.table = []
+
+        def add_row():
+            rows = []
+            for i, obj in enumerate(headers.values()):
+                row = obj[0](
+                    self.table_entry, **obj[1]
+                )  # tk.CTkEntry(self.table_entry, width=100)
+                row.grid(row=len(self.table) + 1, column=i)
+                rows.append(row)
+            self.table.append(rows)
+
+        def add():
+            add_row()
+
+            add_row_button.grid_forget()
+            add_row_button.grid(row=len(self.table) + 1, column=0)
+
+            remove_row_button.grid_forget()
+            remove_row_button.grid(row=len(self.table) + 1, column=1)
+
+        add_row_button = tk.CTkButton(self.table_entry, width=28, text="+", command=add)
+        add_row()
+        add_row_button.grid(row=len(self.table) + 1, column=0)
+
+        def remove():
+            if len(self.table) <= 1:
+                return
+
+            for i in self.table[-1]:
+                i.grid_forget()
+                i.destroy()
+            self.table.pop()
+
+        remove_row_button = tk.CTkButton(
+            self.table_entry, width=28, text="-", command=remove
+        )
+        remove_row_button.grid(row=len(self.table) + 1, column=1)
+
+        self.table_entry.pack()
+
+# will you enter an amount of periods? will there be 
+#
+TableEntry(
+    "Rooms",
+    {
+        "Name": (tk.CTkEntry, {"width": 100}),
+        "Availability": (tk.CTkEntry, {"width": 100}),
+    },
+)
+TableEntry(
+    "Teachers",
+    {
+        "Name": (tk.CTkEntry, {"width": 100}),
+        "Availability": (tk.CTkEntry, {"width": 100}),
+    },
+)
+
+# TODO SAVING
+
+
+# tk.CTkTextbox(root).pack()
+
+# tk.CTkEntry(root).pack()
+# tk.CTkCheckBox(root, text="Checkbox").pack()
+# tk.CTkComboBox(root, values=["Option1", "Option2"]).pack()
+# tk.CTkSlider(root).pack()
+# tk.CTkScrollableFrame(root).pack()
+# tk.CTkSwitch(root, text="Switch").pack()
+frame.pack()
+root.mainloop()
+
 
 _format = "%I:%M%p"
 
@@ -169,7 +295,7 @@ for course in courses_left:
         teacher_available = course.teacher.availability != Availability.Afternoon
     else:
         teacher_available = course.teacher.availability != Availability.Morning
-        
+
     on_monday = Weekdays.Monday in course.days
     if teacher_available and on_monday:
         monday.append(course)
