@@ -1,17 +1,6 @@
-# import customtkinter
-
-# root = customtkinter.CTk()
-# root.geometry("800x300")
-# customtkinter.CTkEntry(root).pack()
-# customtkinter.CTkCheckBox(root, text="Checkbox").pack()
-# customtkinter.CTkComboBox(root, values=["Option1", "Option2"]).pack()
-# customtkinter.CTkSlider(root).pack()
-# customtkinter.CTkScrollableFrame(root).pack()
-# customtkinter.CTkSwitch(root, text="Switch").pack()
-# root.mainloop()
 from enum import Enum
 import datetime
-from typing import Optional, Callable, Any
+from typing import Optional, Callable, Any, Self
 import random
 import copy
 import customtkinter as tk
@@ -19,14 +8,14 @@ import customtkinter as tk
 
 root = tk.CTk()
 
-WIDTH, HEIGHT = 300, 500
+WIDTH, HEIGHT = 700, 500
 root.geometry(f"{WIDTH}x{HEIGHT}")
 # root.tk.call('tk', 'scaling', 8.0)
 
 frame = tk.CTkScrollableFrame(
     root,
     width=WIDTH,
-    height=HEIGHT,
+    height=HEIGHT * 50,
 )
 
 frame._scrollbar.configure(height=0)
@@ -35,10 +24,8 @@ frame._scrollbar.configure(height=0)
 large = tk.CTkFont(size=18)
 
 
-class Entry:
+class TextEntry:
     def __init__(self, label: str):
-        global rows
-
         tk.CTkLabel(frame, text=label).pack()
 
         self.entry = tk.CTkEntry(frame, width=70)
@@ -46,95 +33,95 @@ class Entry:
         self.entry.pack()
 
 
-starting_school_time = Entry("Starting School Time")
-ending_school_time = Entry("Ending School Time")
+class Entry:
+    def __init__(self, cls, multi=False, default_options=None, **kwargs) -> None:
+        self.cls = cls
+        self.kwargs = kwargs
+        self.multi = multi
+        self.default_options = default_options
 
+        self.write_callbacks = []
 
-# def clone(widget: tk.CTkBaseClass):
-#     parent = widget.nametowidget(widget.winfo_parent())
-#     cls = widget.__class__
+    def create(self, parent):
+        if self.write_callbacks:
+            self.kwargs["textvariable"] = tk.StringVar()
+            for callback in self.write_callbacks:
+                self.kwargs["textvariable"].trace_add("write", callback)
 
-#     print(cls, parent)
+        widget = self.cls(parent, **self.kwargs)
+        if self.multi:
+            widget._dropdown_menu.delete(0, "end")
 
-#     clone = cls(parent)
-#     for key in widget.
-#         print(key)
-#         try:
-#             clone.configure(**{key: widget.cget(key)})
-#         except ValueError:
-#             continue
-#     return clone
+            choices = {}
+            widget.get = lambda: choices
+            for v in self.multi:
+                if self.default_options and v in self.default_options:
+                    choices[v] = tk.IntVar(value=1)
+                else:
+                    choices[v] = tk.IntVar(value=0)
+
+                widget._dropdown_menu.add_checkbutton(  # check box
+                    label=v,
+                    variable=choices[v],
+                    onvalue=1,
+                    offvalue=0,
+                    selectcolor="white",
+                )
+        return widget
 
 
 class TableEntry:
     def __init__(
         self,
         title: str,
-        headers: list[str],
-        remove_callback: list[Optional[Callable[[], Any]]] = None,
+        table_row: dict[str, Entry],
     ):  # make headers dict for nay entry type
         self.title = title
-        self.table_entry = tk.CTkScrollableFrame(
+        self.frame = tk.CTkScrollableFrame(
             frame,
             fg_color="gray14",
-            width=400,
-            height=75,
+            width=0,
+            height=100,
         )
-        self.table_entry.grid_anchor("center")
+        self.frame.grid_anchor("center")
 
-        self.table_entry._scrollbar.configure(height=0)
+        self.frame._scrollbar.configure(height=0)
 
-        self.headers = headers
+        self.table_row = table_row
+
+        self.remove_row_callbacks = []
+        self.add_row_callbacks = []
 
     def pack(self):
-        tk.CTkLabel(frame, text=self.title, font=large).pack()
-
-        for i, header in enumerate(self.headers):
-            tk.CTkLabel(self.table_entry, text=header).grid(row=0, column=i)
-
-        self.table_entry.pack()
-
-    def add_column_entries(
-        self,
-        objs: list[tuple[Any, dict[str, Any]]],
-        remove_callback: Optional[Callable[[], Any]] = None,
-        add_callbacks: Optional[Callable[[], Any]] = None,
-    ):
         self.table = []
 
         def add_row():
             rows = []
-            for i, (cls, kwargs) in enumerate(objs):
-                real_kwargs = kwargs.copy()
-
-                if kwargs.get("write_callback"):
-                    real_kwargs["textvariable"] = tk.StringVar()
-                    real_kwargs["textvariable"].trace_add(
-                        "write", kwargs["write_callback"]
-                    )
-                    del real_kwargs["write_callback"]
-
-                obj = cls(self.table_entry, **real_kwargs)
-                obj.grid(row=len(self.table) + 1, column=i)
+            for i, entry in enumerate(self.table_row.values()):
+                obj = entry.create(self.frame)
+                obj.grid(row=len(self.table) + 1, column=i + 1, pady=2, padx=2)
                 rows.append(obj)
             self.table.append(rows)
 
-        def add():
-            print("added")
-            add_row()
-
+        def update():
             add_row_button.grid_forget()
-            add_row_button.grid(row=len(self.table) + 1, column=0, pady=5)
+            add_row_button.grid(row=len(self.table) + 1, column=0, padx=5, pady=5)
 
             remove_row_button.grid_forget()
-            remove_row_button.grid(row=len(self.table) + 1, column=1, pady=5)
 
-            if add_callbacks:
-                for callback in add_callbacks:
+            if len(self.table) > 1:
+                remove_row_button.grid(row=len(self.table), column=0, padx=5, pady=5)
+
+        def add():
+            add_row()
+            update()
+
+            if self.add_row_callbacks:
+                for callback in self.add_row_callbacks:
                     callback()
 
         add_row_button = tk.CTkButton(
-            self.table_entry, width=22, height=22, text="+", command=add
+            self.frame, width=20, height=20, text="+", command=add
         )
         add_row()
         add_row_button.grid(row=len(self.table) + 1, column=0, pady=5)
@@ -148,138 +135,166 @@ class TableEntry:
                 i.destroy()
             self.table.pop()
 
-            if remove_callback:
-                remove_callback()
+            update()
+
+            if self.remove_row_callbacks:
+                for callback in self.remove_row_callbacks:
+                    callback()
 
         remove_row_button = tk.CTkButton(
-            self.table_entry, width=22, height=22, text="-", command=remove
+            self.frame, width=20, height=20, text="-", command=remove
         )
-        remove_row_button.grid(row=len(self.table) + 1, column=1, pady=5)
+        # remove_row_button.grid(row=len(self.table), column=0, pady=5)
+        tk.CTkLabel(frame, text=self.title, font=large).pack()
 
-    def create_option_menu_link_callback(self, column, entry_table):
-        def f(*args):
-            entries = [row[column] for row in self.table]
-            # print(entries)
+        for i, header in enumerate(self.table_row.keys()):
+            tk.CTkLabel(self.frame, text=header).grid(row=0, column=i + 1)
+
+        remove_row_button.grid_forget()
+        self.frame.pack(expand=False, fill="both")
+
+    def _update_menu(self, entry):
+
+        entry._dropdown_menu._add_menu_commands()
+
+    def _multi_select(self, entry):
+        entry._dropdown_menu.delete(0, "end")
+
+        choices = {}
+        entry.get = lambda: choices
+        for v in entry._dropdown_menu._values:
+
+            choices[v] = tk.IntVar(value=0)
+
+            entry._dropdown_menu.add_checkbutton(  # check box
+                label=v,
+                variable=choices[v],
+                onvalue=1,
+                offvalue=0,
+                selectcolor="white",
+            )
+            # entry._text_label.configure(text='HI')
+
+    def link_to_entry_column(
+        self,
+        column: str,
+        entry_column: str,
+        entry_table: Self,
+        multi_select: bool = False,
+    ):
+        def update_menu(*args):
+            entries = [
+                row[list(self.table_row.keys()).index(column)] for row in self.table
+            ]
             for entry in entries:
+                entry._dropdown_menu._values = entry_table.get_column_entries(
+                    entry_column
+                )
 
-                #tk.CTkOptionMenu()._dropdown_menu._add_menu_commands
+                if multi_select:
+                    self._multi_select(entry)
+                else:
+                    self._update_menu(entry)
 
-                entry._dropdown_menu._values = entry_table.get_column_entries(0)
-                entry._dropdown_menu.delete(0, 'end')
-                for v in entry._dropdown_menu._values:
-                    entry._dropdown_menu.add_checkbutton( # check box
-                        label=v,
-                        # variable=self.choices[choice],
-                        # onvalue=1,
-                        # offvalue=0,
-                        command=lambda : print('add'),
-                    )
-                #entry._dropdown_menu._add_menu_commands()
-                
-                #tk.CTkCheckBox(entry._dropdown_menu).grid(row=0, column=0)
-
-                # if column == 2:
-                #     entry._dropdown_menu.insert_checkbutton(0)
-
-        return f
+        entry_table.table_row[entry_column].write_callbacks.append(update_menu)
+        entry_table.remove_row_callbacks.append(update_menu)
+        entry_table.add_row_callbacks.append(update_menu)
 
     def get_column_entries(self, column):
-        return [row[column].get() for row in self.table]
+        return [
+            row[list(self.table_row.keys()).index(column)].get() for row in self.table
+        ]
 
 
-# will you enter an amount of periods? will there be
-#
+starting_school_time = TextEntry("Starting School Time")
+ending_school_time = TextEntry("Ending School Time")
+max_hours_before_prep = TextEntry("Max Hours Before Prep")
+passing_time = TextEntry("Passing Time")
 
+BASIC_ENTRY = Entry(tk.CTkEntry, width=100)
+SMALL_ENTRY = Entry(tk.CTkEntry, width=70)
 
-# make pack later and combine aadd column entries
-courses = TableEntry("Courses", ["Name", "Teacher", "Rooms"])
-teachers = TableEntry("Teachers", ["Name", "Availability"])
-rooms = TableEntry("Rooms", ["Name", "Availability"])
-
-update_courses = courses.create_option_menu_link_callback(1, teachers)
-teachers.add_column_entries(
+create_multi_menu = lambda options, default: Entry(
+    tk.CTkOptionMenu,
+    multi=options,
+    default_options=default,
+    width=0,
+    values=[""],
+)
+PERIOD = create_multi_menu(
     [
-        (tk.CTkEntry, {"width": 100, "write_callback": update_courses}),
-        (tk.CTkEntry, {"width": 100}),
+        "1st Period",
+        "2nd Period",
+        "3rd Period",
+        "4th Period",
+        "5th Period",
+        "6th Period",
+        "7th Period",
     ],
-    update_courses,
+    [
+        "1st Period",
+        "2nd Period",
+        "3rd Period",
+        "4th Period",
+        "5th Period",
+        "6th Period",
+        "7th Period",
+    ],
 )
 
-update_rooms = courses.create_option_menu_link_callback(2, rooms)
-rooms.add_column_entries(
-    [
-        (tk.CTkEntry, {"width": 100, "write_callback": update_rooms}),
-        (tk.CTkEntry, {"width": 100}),
-    ],
-    update_rooms,
+courses = TableEntry(
+    "Courses",
+    {
+        "Name": BASIC_ENTRY,
+        "Teacher": Entry(tk.CTkOptionMenu, width=100, values=[""]),
+        "Rooms": Entry(tk.CTkOptionMenu, width=0, values=[""]),
+        "Days": create_multi_menu(
+            ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        ),
+    },
 )
-courses.add_column_entries(
-    [
-        (tk.CTkEntry, {"width": 100}),
-        (
-            tk.CTkOptionMenu,
-            {
-                "width": 100,
-                "values": [""],
-            },
-        ),
-        (
-            tk.CTkOptionMenu,
-            {
-                "width": 100,
-                "values": [""],
-            },
-        ),
-    ],
-    add_callbacks=[update_courses, update_rooms],
+
+teachers = TableEntry(
+    "Teachers",
+    {
+        "Name": BASIC_ENTRY,
+        "Availability": PERIOD,
+    },
+)
+rooms = TableEntry(
+    "Rooms",
+    {
+        "Name": BASIC_ENTRY,
+        "Availability": PERIOD,
+    },
+)
+
+courses.link_to_entry_column("Teacher", "Name", teachers)
+courses.link_to_entry_column("Rooms", "Name", rooms, multi_select=True)
+
+breaks = TableEntry(
+    "Breaks", {"Name": BASIC_ENTRY, "Start": SMALL_ENTRY, "End": SMALL_ENTRY}
 )
 
 
 rooms.pack()
 teachers.pack()
 courses.pack()
+breaks.pack()
 
-# def f(s):
-#     print("Hi")
-
-
-# rooms.add_column_entries(
-#     [
-#         tk.CTkEntry(rooms.table_entry, width=100),
-#         tk.CTkComboBox(rooms.table_entry, width=100, values=["in", "out"], command=f),
-#     ]
-# )
-
-
-#     "Rooms",
-#     {
-#         "Name": (tk.CTkEntry, {"width": 100}),
-#         "Availability": (tk.CTkEntry, {"width": 100}),
-#     },
-# )
-# teachers = TableEntry(
-#     "Teachers",
-#     {
-#         "Name": (tk.CTkEntry, {"width": 100}),
-#         "Availability": (tk.CTkEntry, {"width": 100}),
-#     },
-# )
-# print([""] + teachers.names)
-# sv = StringVar()
-# sv.trace("w", lambda name, index, mode, sv=sv: callback(sv))
-
-
-# def f3(v):
-#     for x in teachers.table:
-#         v.x[0]
-
-
-# TableEntry(
-#     "Courses",
-#     {
-#         "Name": (tk.CTkEntry, {"width": 100}),
-#         "Teacher": (tk.CTkComboBox, {"command": f3}),
-#     },
-# )
 frame.pack()
+
+button = tk.CTkFrame(frame, width=200, height=30, fg_color="gray14")
+
+
+tk.CTkLabel(button, text="Made by Jacob Ophoven").pack()
+# tk.CTkLabel(button, text="Availability Syntax Examples: 8:55AM-9:21AM").pack()
+# tk.CTkLabel(button, text="Time Syntax Examples: 8:55AM").pack()
+button.pack_propagate(0)
+
+button.pack(pady=10)
+root.title("Scheduler")
 root.mainloop()
+
+# undo, save?
