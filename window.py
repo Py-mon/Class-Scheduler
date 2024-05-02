@@ -199,6 +199,9 @@ class TableEntry:
         entry_table.table_row[entry_column].write_callbacks.append(update_menu)
         entry_table.remove_row_callbacks.append(update_menu)
         entry_table.add_row_callbacks.append(update_menu)
+        
+        self.remove_row_callbacks.append(update_menu)
+        self.add_row_callbacks.append(update_menu)
 
     def get_column_entries(self, column):
         return [
