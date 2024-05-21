@@ -1,304 +1,199 @@
-from enum import Enum
-import datetime
-from typing import Optional, Callable, Any
-import random
+import pandas as pd
+import logging
+from typing import Any
 
-
-class Weekdays(Enum):
-    Monday = 0
-    Tuesday = 1
-    Wednesday = 2
-    Thursday = 3
-    Friday = 4
-
-
-ALL_WEEK_DAYS = [
-    Weekdays.Monday,
-    Weekdays.Tuesday,
-    Weekdays.Wednesday,
-    Weekdays.Thursday,
-    Weekdays.Friday,
-]
-
-
-class Availability(Enum):
-    Morning = -1
-    Anytime = 0
-    Afternoon = 1
-
-
-class CourseType(Enum):
-    Core = 0
-    Elective = 1
-
-
-class Teacher:
-    def __init__(self, name: str, availability: Availability):
-        self.name = name
-        self.availability = availability
-
-        # prep period/break
-
-
-class Room:
-    def __init__(self, name: str):
-        self.name = name
-        # distance?
-
-
-class Course:
-    def __init__(
-        self,
-        name: str,
-        room: Room,
-        grade_prerequisite: Callable[[int], bool],
-        type_: CourseType,
-        teacher: Teacher,
-        days: list[Weekdays],
-    ):  # get time
-        self.name = name
-        self.room = room
-        self.grade_prerequisite = grade_prerequisite
-        self.type_ = type_
-        self.teacher = teacher
-        self.days = days
-
-    def __repr__(self) -> str:
-        return self.name
-
-
-class Break:
-    def __init__(self, name, duration) -> None:
-        self.name = name
-        self.duration = duration
-
-
-# -----,.
-# give teachers with minimal classes
-
-
-class DoorDuty:
-    pass  # get teacher and time
-
-
-class LunchDuty:
-    pass  # get teacher and time
-
-
-class StudyHall:
-    pass  # get teacher and time
-
-
-# ----
-# detention duty?
-
-import customtkinter as tk
-
-root = tk.CTk()
-
-WIDTH, HEIGHT = 300, 500
-root.geometry(f"{WIDTH}x{HEIGHT}")
-
-frame = tk.CTkScrollableFrame(
-    root,
-    width=WIDTH,
-    height=HEIGHT - 50,
+logger = logging.getLogger(" ")
+logging.basicConfig(
+    filename="log.log",
+    encoding="utf-8",
+    level=logging.DEBUG,
+    filemode="w",
+    format="%(levelname)s: %(message)s",
 )
+logger.setLevel(9)
 
-frame._scrollbar.configure(height=0)
-
-
-large = tk.CTkFont(size=18)
+logging.addLevelName(2, "DECLINED")
 
 
-class Entry:
-    def __init__(self, label: str):
-        global rows
-
-        tk.CTkLabel(frame, text=label).pack()
-
-        self.entry = tk.CTkEntry(frame, width=70)
-
-        self.entry.pack()
-
-
-starting_school_time = Entry("Starting School Time")
-ending_school_time = Entry("Ending School Time")
-
-
-class TableEntry:
-    def __init__(
-        self, title: str, headers: dict[str, tuple[Any, dict[str, Any]]]
-    ):  # make headers dict for nay entry type
-
-        tk.CTkLabel(frame, text=title, font=large).pack()
-        self.table_entry = tk.CTkScrollableFrame(
-            frame,
-            fg_color="gray14",
-            width=400,
-            height=75,
+def decline(msg, period, course_name, room_name, day, course):
+    if logger.level >= 2:
+        logger._log(
+            2,
+            "Period: "
+            + str(period)
+            + " Course: "
+            + str(course_name)
+            + " Room: "
+            + str(room_name)
+            + " Day: "
+            + str(day)
+            + " "
+            + str(msg),
+            (),
         )
-        self.table_entry.grid_anchor("center")
 
-        self.table_entry._scrollbar.configure(height=0)
 
-        for i, header in enumerate(headers):
-            tk.CTkLabel(self.table_entry, text=header).grid(row=0, column=i)
-
-        self.table = []
-
-        def add_row():
-            rows = []
-            for i, obj in enumerate(headers.values()):
-                row = obj[0](
-                    self.table_entry, **obj[1]
-                )  # tk.CTkEntry(self.table_entry, width=100)
-                row.grid(row=len(self.table) + 1, column=i)
-                rows.append(row)
-            self.table.append(rows)
-
-        def add():
-            add_row()
-
-            add_row_button.grid_forget()
-            add_row_button.grid(row=len(self.table) + 1, column=0)
-
-            remove_row_button.grid_forget()
-            remove_row_button.grid(row=len(self.table) + 1, column=1)
-
-        add_row_button = tk.CTkButton(self.table_entry, width=28, text="+", command=add)
-        add_row()
-        add_row_button.grid(row=len(self.table) + 1, column=0)
-
-        def remove():
-            if len(self.table) <= 1:
-                return
-
-            for i in self.table[-1]:
-                i.grid_forget()
-                i.destroy()
-            self.table.pop()
-
-        remove_row_button = tk.CTkButton(
-            self.table_entry, width=28, text="-", command=remove
-        )
-        remove_row_button.grid(row=len(self.table) + 1, column=1)
-
-        self.table_entry.pack()
-
-# will you enter an amount of periods? will there be 
-#
-TableEntry(
-    "Rooms",
-    {
-        "Name": (tk.CTkEntry, {"width": 100}),
-        "Availability": (tk.CTkEntry, {"width": 100}),
-    },
-)
-TableEntry(
-    "Teachers",
-    {
-        "Name": (tk.CTkEntry, {"width": 100}),
-        "Availability": (tk.CTkEntry, {"width": 100}),
-    },
+data = pd.read_excel(
+    "Book1.xlsx", sheet_name=["Teachers", "Rooms", "Courses"], header=0, index_col=0
 )
 
-# TODO SAVING
+teachers = data["Teachers"]
+rooms = data["Rooms"]
+courses = data["Courses"]
+# TODO duties = data["Duties"]
+
+logger.debug("\n" + str(teachers))
+logger.debug("\n" + str(rooms))
+logger.debug("\n" + str(courses))
 
 
-# tk.CTkTextbox(root).pack()
-
-# tk.CTkEntry(root).pack()
-# tk.CTkCheckBox(root, text="Checkbox").pack()
-# tk.CTkComboBox(root, values=["Option1", "Option2"]).pack()
-# tk.CTkSlider(root).pack()
-# tk.CTkScrollableFrame(root).pack()
-# tk.CTkSwitch(root, text="Switch").pack()
-frame.pack()
-root.mainloop()
+def get_list(string):
+    """
+    Take a string and convert it to a python list.
+    ```
+    "1,2,3" -> [1,2,3]
+    "5, 7, 1" -> [5,7,1]"""
+    return [s.strip() for s in string.split(",")]
 
 
-_format = "%I:%M%p"
+rooms_occupied: dict[Any, dict[int, None | int]] = {
+    label: {int(i): None for i in get_list(room["Periods"])}
+    for label, room in rooms.iterrows()
+}
+#    Room1  Room2  Room3  Room4
+# 1 course
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
 
-STARTING_SCHOOL_TIME = datetime.datetime.strptime("8:20AM", _format)
-ENDING_SCHOOL_TIME = datetime.datetime.strptime("3:05PM", _format)
+teachers_occupied: dict[Any, dict[int, None | int]] = {
+    label: {int(i): None for i in get_list(teacher["Periods"])}
+    for label, teacher in teachers.iterrows()
+}
+#   Teacher1 Teacher2 Teacher3
+# 1 course
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
 
-Gym = Room("Gym")
-a201 = Room("a201")
-a202 = Room("a202")
+# needs to be 3D?
+# days_occupied: dict[Any, dict[int, None | int]] = {
+#     day: {int(i): None for i in range(1, 8)}
+#     for day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+# }
+# #   Monday, Tuesday, Wednesday, Thursday
+# # 1 course
+# # 2
+# # 3
+# # 4
+# # 5
+# # 6
+# # 7
 
-Hawkinson = Teacher("Hawkinson", Availability.Anytime)
-Stockman = Teacher("Stockman", Availability.Anytime)
-Hanson = Teacher("Hanson", Availability.Afternoon)
+grades_occupied: dict[Any, dict[int, None | int]] = {
+    course["Grade"]: {int(i): None for i in range(1, 8)}
+    for _, course, in courses.iterrows()
+}
 
-Lunch = Break("Lunch", 30)
-PassingTime = Break("PassingTime", 4)
-
-
-def grade_prerequisite_equal_to(grade: int):
-    def f(x):
-        return x == grade
-
-    return f
-
-
-def grade_prerequisite_greater_than(grade: int):
-    def f(x):
-        return x > grade
-
-    return f
+#   8,     9,    10
+# 1 course
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
 
 
-Bible_10A = Course(
-    "Bible 10A",
-    a201,
-    grade_prerequisite_equal_to(10),
-    CourseType.Core,
-    Hawkinson,
-    ALL_WEEK_DAYS,
-)
-Bible_10B = Course(
-    "Bible 10B",
-    a201,
-    grade_prerequisite_equal_to(10),
-    CourseType.Core,
-    Hawkinson,
-    ALL_WEEK_DAYS,
-)
+def fits_requirements(period, course, room_name, day, course_name):
+    teacher_working_periods = teachers_occupied[course["Teacher"]]
 
-# def get_period_length(breaks: list[Break], passing_time: int, periods: int):
-#     passing_time = passing_time * (periods - 3) # 1, 2, 3, 4,   # -8
-#     print(passing_time)
-#     period_time = (ENDING_SCHOOL_TIME - STARTING_SCHOOL_TIME).total_seconds() / 60 - passing_time - 25
-#     print(period_time / periods)
+    info = (period, course_name, room_name, day, course)
 
-# get_period_length([Lunch], PassingTime.duration, 7)
-
-PERIODS = 7
-
-monday = []
-
-courses_left = [Bible_10A, Bible_10B]
-
-# Morning core classes
-for course in courses_left:
-    core_class = course.type_ == CourseType.Core
-    teacher_available = course.teacher.availability != Availability.Afternoon
-    on_monday = Weekdays.Monday in course.days
-    if core_class and teacher_available and on_monday:
-        monday.append(course)
-        courses_left.remove(course)
-
-for course in courses_left:
-    # check if still in the morning
-    if len(monday) > PERIODS // 2:
-        teacher_available = course.teacher.availability != Availability.Afternoon
+    worked_in_a_row_recently = 0
+    for work_period, occupied in teacher_working_periods.items():
+        if occupied == None:
+            worked_in_a_row_recently = 0
+            if work_period == period:
+                break
+        else:
+            worked_in_a_row_recently += 1
     else:
-        teacher_available = course.teacher.availability != Availability.Morning
+        decline("not available", *info)
+        return False
 
-    on_monday = Weekdays.Monday in course.days
-    if teacher_available and on_monday:
-        monday.append(course)
-        courses_left.remove(course)
+    if worked_in_a_row_recently > 3:
+        decline("needs a break", *info)
+        return False
 
-print(monday)
+    room_periods = rooms_occupied[room_name]
+
+    if room_periods.get(period, 99) == 99:
+        decline("room not available", *info)
+        return False
+
+    if room_periods[period] != None:
+        decline("room full", *info)
+        return False
+
+    on_all_days = course["Days"] == "ALL"
+    on_day = day in get_list(course["Days"])
+    if not on_day and not on_all_days:
+        decline("wrong day", *info)  # can speed up by putting this outside
+        return False
+
+    core_class = course["Type"] == "Core"
+    afternoon_class = period > 4
+    if afternoon_class and core_class:
+        decline(
+            "afternoon, core class", *info
+        )  # can speed up by looping only over the periods
+        return False
+
+    morning_class = period <= 4
+    if morning_class and not core_class:
+        decline("morning, non-core class", *info)
+        return False
+
+    grade_periods_occupied = grades_occupied[course["Grade"]]
+    if grade_periods_occupied[period] != None:
+        decline("Grade busy", *info)
+        return
+
+    return True
+
+
+def add_course(period, course, course_name, room_name, day):
+    teachers_occupied[course["Teacher"]][period] = course_name
+
+    rooms_occupied[room_name][period] = course_name
+
+    grades_occupied[course["Grade"]][period] = course_name
+
+    # days_occupied[day][period] = course_name
+
+
+def try_combos():
+    for course_name, course in courses.iterrows():
+        for possible_room in [course["Room1"], course["Room2"], course["Room3"]]:
+            if type(possible_room) == float:
+                continue
+            for i in range(7):
+                if fits_requirements(
+                    i + 1, course, possible_room, "Monday", course_name
+                ):
+                    add_course(i + 1, course, course_name, possible_room, "Monday")
+                    break
+
+
+try_combos()
+
+print(rooms_occupied)
+print(grades_occupied)
+print(teachers_occupied)
