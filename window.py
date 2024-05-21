@@ -161,7 +161,7 @@ class TableEntry:
         entry._dropdown_menu.delete(0, "end")
 
         choices = {}
-        entry.get = lambda: choices
+        entry.get = lambda: [key for key, value in choices.items() if value == 1]
         for v in entry._dropdown_menu._values:
 
             choices[v] = tk.IntVar(value=0)
@@ -199,7 +199,7 @@ class TableEntry:
         entry_table.table_row[entry_column].write_callbacks.append(update_menu)
         entry_table.remove_row_callbacks.append(update_menu)
         entry_table.add_row_callbacks.append(update_menu)
-        
+
         self.remove_row_callbacks.append(update_menu)
         self.add_row_callbacks.append(update_menu)
 
@@ -287,6 +287,24 @@ courses.pack()
 breaks.pack()
 
 frame.pack()
+
+
+import data
+
+
+def command():
+    for course in courses.table:
+        name, teacher, rooms, days = course
+        print(name.get())
+        print(teacher.get())
+        print(rooms.get())
+        print(days.get())
+
+
+button = tk.CTkButton(
+    frame, width=200, height=30, text="Enter Data", command=command
+).pack()
+
 
 button = tk.CTkFrame(frame, width=200, height=30, fg_color="gray14")
 

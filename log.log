@@ -1,0 +1,43 @@
+DEBUG: :DECLINED Period: 1 Course: Art Room: 203 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 2 Course: Art Room: 203 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 3 Course: Art Room: 203 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 4 Course: Art Room: 203 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 5 Course: Art Room: 203 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 6 Course: Art Room: 203 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 7 Course: Art Room: 203 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 1 Course: Gym Room: Gym Day: Mondaymorning, non-core class
+DEBUG: :DECLINED Period: 2 Course: Gym Room: Gym Day: Mondaymorning, non-core class
+DEBUG: :DECLINED Period: 3 Course: Gym Room: Gym Day: Mondaymorning, non-core class
+DEBUG: :DECLINED Period: 4 Course: Gym Room: Gym Day: Mondaymorning, non-core class
+DEBUG: :DECLINED Period: 1 Course: Spanish Room: 201 Day: Mondayroom full
+DEBUG: :DECLINED Period: 2 Course: Spanish Room: 201 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 3 Course: Spanish Room: 201 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 4 Course: Spanish Room: 201 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 5 Course: Spanish Room: 201 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 6 Course: Spanish Room: 201 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 7 Course: Spanish Room: 201 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 1 Course: Lang Room: 205 Day: MondayGrade busy
+DEBUG: :DECLINED Period: 1 Course: Science Room: 204 Day: Mondaynot available
+DEBUG: :DECLINED Period: 2 Course: Science Room: 204 Day: Mondaynot available
+DEBUG: :DECLINED Period: 3 Course: Science Room: 204 Day: Mondaynot available
+DEBUG: :DECLINED Period: 4 Course: Science Room: 204 Day: Mondaymorning, non-core class
+DEBUG: :DECLINED Period: 5 Course: Science Room: 204 Day: MondayGrade busy
+DEBUG: :DECLINED Period: 1 Course: Math Room: 206 Day: MondayGrade busy
+DEBUG: :DECLINED Period: 2 Course: Math Room: 206 Day: MondayGrade busy
+DEBUG: :DECLINED Period: 1 Course: History Room: 202 Day: MondayGrade busy
+DEBUG: :DECLINED Period: 2 Course: History Room: 202 Day: MondayGrade busy
+DEBUG: :DECLINED Period: 3 Course: History Room: 202 Day: MondayGrade busy
+DEBUG: :DECLINED Period: 1 Course: Band Room: 206 Day: Mondaymorning, non-core class
+DEBUG: :DECLINED Period: 2 Course: Band Room: 206 Day: Mondaymorning, non-core class
+DEBUG: :DECLINED Period: 3 Course: Band Room: 206 Day: Mondayroom full
+DEBUG: :DECLINED Period: 4 Course: Band Room: 206 Day: Mondaymorning, non-core class
+DEBUG: :DECLINED Period: 5 Course: Band Room: 206 Day: MondayGrade busy
+DEBUG: :DECLINED Period: 6 Course: Band Room: 206 Day: MondayGrade busy
+DEBUG: :DECLINED Period: 1 Course: Study Room: 205 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 2 Course: Study Room: 205 Day: Mondayroom full
+DEBUG: :DECLINED Period: 3 Course: Study Room: 205 Day: Mondaynot available
+DEBUG: :DECLINED Period: 4 Course: Study Room: 205 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 5 Course: Study Room: 205 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 6 Course: Study Room: 205 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 7 Course: Study Room: 205 Day: Mondaywrong day
+DEBUG: :DECLINED Period: 1 Course: Bible 9A Room: 201 Day: Mondaynot available
