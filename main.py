@@ -142,8 +142,8 @@ def fits_requirements(period, course, room_name, day, course_name):
         decline("room full", *info)
         return False
 
-    on_all_days = course["Days"] == "ALL"
-    on_day = day in get_list(course["Days"])
+    on_all_days = course["Days"].upper() == "ALL"
+    on_day = day in [x.lower() for x in get_list(course["Days"])]
     if not on_day and not on_all_days:
         decline("wrong day", *info)  # can speed up by putting this outside
         return False
@@ -182,18 +182,19 @@ def add_course(period, course, course_name, room_name, day):
 def try_combos():
     for course_name, course in courses.iterrows():
         for possible_room in [course["Room1"], course["Room2"], course["Room3"]]:
-            if type(possible_room) == float:
+            if type(possible_room) == float: # empty
                 continue
+            
             for i in range(7):
                 if fits_requirements(
-                    i + 1, course, possible_room, "Monday", course_name
+                    i + 1, course, possible_room, "monday", course_name
                 ):
-                    add_course(i + 1, course, course_name, possible_room, "Monday")
+                    add_course(i + 1, course, course_name, possible_room, "monday")
                     break
 
 
 try_combos()
 
-print(rooms_occupied)
+#print(rooms_occupied)
 print(grades_occupied)
-print(teachers_occupied)
+#print(teachers_occupied)
