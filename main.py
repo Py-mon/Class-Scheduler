@@ -10,7 +10,7 @@ logging.basicConfig(
     filemode="w",
     format="%(levelname)s: %(message)s",
 )
-logger.setLevel(9)
+logger.setLevel(0)
 
 logging.addLevelName(2, "DECLINED")
 
@@ -53,66 +53,66 @@ def get_list(string):
     ```
     "1,2,3" -> [1,2,3]
     "5, 7, 1" -> [5,7,1]"""
-    return [s.strip() for s in string.split(",")]
+    return [s.strip() for s in str(string).split(",")]
 
 
-rooms_occupied: dict[Any, dict[int, None | int]] = {
-    label: {int(i): None for i in get_list(room["Periods"])}
-    for label, room in rooms.iterrows()
-}
-#    Room1  Room2  Room3  Room4
-# 1 course
-# 2
-# 3
-# 4
-# 5
-# 6
-# 7
+DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday"]
 
-teachers_occupied: dict[Any, dict[int, None | int]] = {
-    label: {int(i): None for i in get_list(teacher["Periods"])}
-    for label, teacher in teachers.iterrows()
-}
-#   Teacher1 Teacher2 Teacher3
-# 1 course
-# 2
-# 3
-# 4
-# 5
-# 6
-# 7
 
-# needs to be 3D?
-# days_occupied: dict[Any, dict[int, None | int]] = {
-#     day: {int(i): None for i in range(1, 8)}
-#     for day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+def create_occupy_table(
+    iter, periods, label
+) -> dict[str, dict[Any, dict[int, None | int]]]:
+    return {
+        label(name, value): {
+            day: {
+                int(period): None
+                for period in periods(name, value)
+            }
+           for day in DAYS
+        }
+        for name, value in iter
+    }
+
+
+def label(name, _):
+    return name
+
+
+def periods_column(_, value):
+    return get_list(value["Periods"])
+
+
+# rooms_occupied: dict[str, dict[Any, dict[int, None | int]]] = {
+#     day: {
+#         label: {
+#             int(i): None for i in get_list(room["Periods"])
+#         }
+#         for label, room in rooms.iterrows()
+#     }
+#     for day in DAYS
 # }
-# #   Monday, Tuesday, Wednesday, Thursday
-# # 1 course
-# # 2
-# # 3
-# # 4
-# # 5
-# # 6
-# # 7
+rooms_occupied = create_occupy_table(rooms.iterrows(), periods_column, label)
 
-grades_occupied: dict[Any, dict[int, None | int]] = {
-    course["Grade"]: {int(i): None for i in range(1, 8)}
-    for _, course, in courses.iterrows()
-}
+# teachers_occupied: dict[Any, dict[int, None | int]] = {
+#     label: {int(i): None for i in get_list(teacher["Periods"])}
+#     for label, teacher in teachers.iterrows()
+# }
+teachers_occupied = create_occupy_table(teachers.iterrows(), periods_column, label)
 
-#   8,     9,    10
-# 1 course
-# 2
-# 3
-# 4
-# 5
-# 6
-# 7
+# grades_occupied: dict[Any, dict[int, None | int]] = {
+#     get_list(course["Grades"])[0]: {int(i): None for i in range(1, 8)}
+#     for _, course, in courses.iterrows()
+# }
+grades_occupied = create_occupy_table(
+    courses.iterrows(),
+    lambda _, __: range(1, 8),
+    lambda _, value: get_list(value["Grades"])[0],
+)
 
 
 def fits_requirements(period, course, room_name, day, course_name):
-    teacher_working_periods = teachers_occupied[course["Teacher"]]
+
+    teacher_working_periods = teachers_occupied[course["Teacher"]][day]
 
     info = (period, course_name, room_name, day, course)
 
@@ -132,7 +132,7 @@ def fits_requirements(period, course, room_name, day, course_name):
         decline("needs a break", *info)
         return False
 
-    room_periods = rooms_occupied[room_name]
+    room_periods = rooms_occupied[room_name][day]
 
     if room_periods.get(period, 99) == 99:
         decline("room not available", *info)
@@ -161,40 +161,48 @@ def fits_requirements(period, course, room_name, day, course_name):
         decline("morning, non-core class", *info)
         return False
 
-    grade_periods_occupied = grades_occupied[course["Grade"]]
-    if grade_periods_occupied[period] != None:
-        decline("Grade busy", *info)
-        return
+    for grade in get_list(course["Grades"]):
+        grade_periods_occupied = grades_occupied[grade][day]
+        if grade_periods_occupied[period] != None:
+            decline("Grade busy", *info)
+            return
 
     return True
 
 
 def add_course(period, course, course_name, room_name, day):
-    teachers_occupied[course["Teacher"]][period] = course_name
+    teachers_occupied[course["Teacher"]][day][period] = course_name
 
-    rooms_occupied[room_name][period] = course_name
+    rooms_occupied[room_name][day][period] = course_name
 
-    grades_occupied[course["Grade"]][period] = course_name
+    # course["Letter"]
+    for grade in get_list(course["Grades"]):
+        grades_occupied[grade][day][period] = course_name
 
     # days_occupied[day][period] = course_name
 
 
 def try_combos():
-    for course_name, course in courses.iterrows():
-        for possible_room in [course["Room1"], course["Room2"], course["Room3"]]:
-            if type(possible_room) == float: # empty
-                continue
-            
-            for i in range(7):
-                if fits_requirements(
-                    i + 1, course, possible_room, "monday", course_name
-                ):
-                    add_course(i + 1, course, course_name, possible_room, "monday")
-                    break
+    for day in DAYS:
+        for course_name, course in courses.iterrows():
+            for possible_room in [course["Room1"], course["Room2"], course["Room3"]]:
+                if type(possible_room) == float:  # empty
+                    continue
+
+                for i in range(7):
+                    if fits_requirements(
+                        i + 1, course, possible_room, day, course_name
+                    ):
+                        add_course(i + 1, course, course_name, possible_room, day)
+                        break
 
 
 try_combos()
 
-#print(rooms_occupied)
-print(grades_occupied)
-#print(teachers_occupied)
+print(rooms_occupied)
+import random
+
+x = list(grades_occupied.items())
+random.shuffle(x)
+print(x)
+print(teachers_occupied)
