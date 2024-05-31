@@ -252,8 +252,8 @@ def do():
                     occupy_course(*result)
 
 
-rooms_occupied, teachers_occupied, grades_occupied = generate_occupy_tables()
 precalculate_data()
+rooms_occupied, teachers_occupied, grades_occupied = generate_occupy_tables()
 period_slots = calculate_period_slots()
 
 start = time()
