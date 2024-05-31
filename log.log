@@ -11,26 +11,50 @@ Stockman   1,2,3,4,5,6,7
 Peters     1,2,3,4,5,6,7
 Strand     1,2,3,4,5,6,7
 DEBUG: 
-            Periods
-Name               
-201   1,2,3,4,5,6,7
-202   1,2,3,4,5,6,7
-203   1,2,3,4,5,6,7
-Gym   1,2,3,4,5,6,7
-205   1,2,3,4,5,6,7
-204   1,2,3,4,5,6,7
-206   1,2,3,4,5,6,7
-Band  1,2,3,4,5,6,7
+            Periods  Type
+Name                     
+201   1,2,3,4,5,6,7   Any
+202   1,2,3,4,5,6,7   Any
+203   1,2,3,4,5,6,7   NaN
+Gym   1,2,3,4,5,6,7    PE
+205   1,2,3,4,5,6,7   NaN
+204   1,2,3,4,5,6,7   NaN
+206   1,2,3,4,5,6,7   NaN
+Band  1,2,3,4,5,6,7  Band
 DEBUG: 
-           Teacher                               Days   Type  Grades  Sections Room1  Room2  Room3  Room4  Room5
-Name                                                                                                            
-Bible    Hawkinson                                ALL   Core       9         2   201    NaN    NaN    NaN    NaN
-Art          Chant                          Wednesday  Other       9         2   203    NaN    NaN    NaN    NaN
-Gym         Peters                      Monday,Friday  Other       9         2   Gym    NaN    NaN    NaN    NaN
-Spanish      Lutio                   Tuesday,Thursday  Other       9         2   201    NaN    NaN    NaN    NaN
-Lang       Coleman                                ALL   Core       9         2   205    NaN    NaN    NaN    NaN
-Science     Hanson                                ALL  Other       9         2   204    NaN    NaN    NaN    NaN
-Math        Strand                                ALL   Core       9         2   206    NaN    NaN    NaN    NaN
-History   Stockman                                ALL   Core       9         2   202    NaN    NaN    NaN    NaN
-Band        Curtis  Monday,Tuesday,Wednesday,Thursday  Other       9         2   206    NaN    NaN    NaN    NaN
-Study       Strand                             Friday  Other       9         2   205    NaN    NaN    NaN    NaN
+           Teacher                               Days   Type  Grades  ...  Room2 Room3  Room4  Room5
+Name                                                                  ...                           
+Bible    Hawkinson                                ALL   Core       9  ...    NaN   NaN    NaN    NaN
+Art          Chant                          Wednesday  Other       9  ...    NaN   NaN    NaN    NaN
+Gym         Peters                      Monday,Friday  Other       9  ...    NaN   NaN    NaN    NaN
+Spanish      Lutio                   Tuesday,Thursday  Other       9  ...    NaN   NaN    NaN    NaN
+Lang       Coleman                                ALL   Core       9  ...    NaN   NaN    NaN    NaN
+Science     Hanson                                ALL  Other       9  ...    NaN   NaN    NaN    NaN
+Math        Strand                                ALL   Core       9  ...    NaN   NaN    NaN    NaN
+History   Stockman                                ALL   Core       9  ...    NaN   NaN    NaN    NaN
+Band        Curtis  Monday,Tuesday,Wednesday,Thursday  Other       9  ...    NaN   NaN    NaN    NaN
+Study       Strand                             Friday  Other       9  ...    NaN   NaN    NaN    NaN
+
+[10 rows x 10 columns]
+DEBUG: 
+A
+    monday  tuesday wednesday thursday   friday
+0    Bible    Bible     Bible    Bible    Bible
+1      Gym  Spanish       Art  Spanish      Gym
+2     Lang     Lang      Lang     Lang     Lang
+3  Science  Science   Science  Science  Science
+4     Math     Math      Math     Math     Math
+5  History  History   History  History  History
+6     Band     Band      Band     Band    Study
+
+B
+    monday  tuesday wednesday thursday   friday
+0    Bible    Bible     Bible    Bible    Bible
+1      Gym  Spanish       Art  Spanish      Gym
+2     Lang     Lang      Lang     Lang     Lang
+3  Science  Science   Science  Science  Science
+4     Math     Math      Math     Math     Math
+5  History  History   History  History  History
+6     Band     Band      Band     Band    Study
+
+

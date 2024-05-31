@@ -1,37 +1,21 @@
-import pandas as pd
-import logging
+from logging import DEBUG, basicConfig, getLogger
+from random import randint, shuffle
+from string import ascii_uppercase
+from time import time
 from typing import Any
 
-logger = logging.getLogger(" ")
-logging.basicConfig(
+import numpy
+import pandas as pd
+
+logger = getLogger(" ")
+basicConfig(
     filename="log.log",
     encoding="utf-8",
-    level=logging.DEBUG,
+    level=DEBUG,
     filemode="w",
     format="%(levelname)s: %(message)s",
 )
-logger.setLevel(0)
-
-logging.addLevelName(2, "DECLINED")
-
-
-def decline(msg, period, course_name, room_name, day, course):
-    if logger.level >= 2:
-        logger._log(
-            2,
-            "Period: "
-            + str(period)
-            + " Course: "
-            + str(course_name)
-            + " Room: "
-            + str(room_name)
-            + " Day: "
-            + str(day)
-            + " "
-            + str(msg),
-            (),
-        )
-
+logger.setLevel(9)
 
 data = pd.read_excel(
     "Book1.xlsx", sheet_name=["Teachers", "Rooms", "Courses"], header=0, index_col=0
@@ -46,75 +30,132 @@ logger.debug("\n" + str(teachers))
 logger.debug("\n" + str(rooms))
 logger.debug("\n" + str(courses))
 
+# Constants
+DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday"]
+PERIODS = 7
+AFTERNOON_PERIOD = 5
+
+# Precalculated Ranges
+PERIODS_RANGE = range(1, PERIODS + 1)
+MORNING_RANGE = range(1, AFTERNOON_PERIOD)
+AFTERNOON_RANGE = range(AFTERNOON_PERIOD, PERIODS + 1)
+
+
+def section_number_to_letter(number):
+    """
+    Get a letter from a section number.
+
+    ```
+    0 -> A
+    1 -> B
+    3 -> C
+    """
+    return ascii_uppercase[number]
+
 
 def get_list(string):
     """
     Take a string and convert it to a python list.
     ```
-    "1,2,3" -> [1,2,3]
-    "5, 7, 1" -> [5,7,1]"""
+    "1,2,3" -> ["1", "2", "3"]
+    "5, 7, 1" -> ["5", "7", "1"]"""
     return [s.strip() for s in str(string).split(",")]
 
 
-DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday"]
+def precalculate_data():
+    courses.insert(
+        len(courses.columns), "Periods", [None for _ in range(len(courses))], True
+    )
+
+    for course_name, course in courses.iterrows():
+        # Convert int "Sections" (2) to ["A", "B", ...]
+        new_sections = []
+        for section in range(course["Sections"]):
+            letter = section_number_to_letter(section)
+            new_sections.append(letter)
+        courses["Sections"][course_name] = new_sections
+
+        # Convert "Days" to list of lowercase days
+        if "all" == course["Days"].lower():
+            courses["Days"][course_name] = DAYS
+        else:
+            courses["Days"][course_name] = [
+                day.lower() for day in get_list(course["Days"])
+            ]
+
+        courses["Periods"][course_name] = (
+            MORNING_RANGE if course["Type"] == "Core" else AFTERNOON_RANGE
+        )
+
+        # TODO course["Grades"]
+
+    for name, room in rooms.iterrows():
+        rooms["Periods"][name] = get_list(room["Periods"])
+
+    for name, teacher in teachers.iterrows():
+        teachers["Periods"][name] = get_list(teacher["Periods"])
 
 
-def create_occupy_table(
-    iter, periods, label
-) -> dict[str, dict[Any, dict[int, None | int]]]:
+def calculate_period_slots():
+    # TODO multiple grades allowed in class (same thing as vvv)
+    # TODO 1 Section for all A, B etc (new page for grades?)
+    period_slots = {
+        9: {"A": [{} for _ in PERIODS_RANGE], "B": [{} for _ in PERIODS_RANGE]}
+    }  # grade section period day - course
+    # ? are period slots different for each section
+
+    for course_name, course in courses.iterrows():
+        for section in course["Sections"]:
+            for day in course["Days"]:
+                for i, period_slot in enumerate(
+                    period_slots[course["Grades"]][section]
+                ):  # break
+                    if day in list(period_slot.keys()):
+                        continue
+
+                    period_slots[course["Grades"]][section][i][day] = course_name
+                    break
+
+    string = ""
+    for key, grade in {
+        key: str(pd.DataFrame.from_dict(day)) for key, day in period_slots[9].items()
+    }.items():
+        string += key + "\n"
+        string += grade + "\n\n"
+
+    logger.debug("\n" + str(string))
+
+    return period_slots
+
+
+def create_occupy_table(iter) -> dict[str, dict[Any, dict[int, None | int]]]:
     return {
-        label(name, value): {
-            day: {
-                int(period): None
-                for period in periods(name, value)
-            }
-           for day in DAYS
-        }
+        name: {day: {int(period): None for period in value["Periods"]} for day in DAYS}
         for name, value in iter
     }
 
 
-def label(name, _):
-    return name
+def generate_occupy_tables():
+    rooms_occupied = create_occupy_table(rooms.iterrows())
+
+    teachers_occupied = create_occupy_table(teachers.iterrows())
+
+    grades_occupied = {
+        course["Grades"]: {  # TODO
+            section: {
+                day: {int(period): None for period in PERIODS_RANGE} for day in DAYS
+            }
+            for section in course["Sections"]
+        }
+        for name, course in courses.iterrows()
+    }
+    # grade section day period - course
+    return rooms_occupied, teachers_occupied, grades_occupied
 
 
-def periods_column(_, value):
-    return get_list(value["Periods"])
-
-
-# rooms_occupied: dict[str, dict[Any, dict[int, None | int]]] = {
-#     day: {
-#         label: {
-#             int(i): None for i in get_list(room["Periods"])
-#         }
-#         for label, room in rooms.iterrows()
-#     }
-#     for day in DAYS
-# }
-rooms_occupied = create_occupy_table(rooms.iterrows(), periods_column, label)
-
-# teachers_occupied: dict[Any, dict[int, None | int]] = {
-#     label: {int(i): None for i in get_list(teacher["Periods"])}
-#     for label, teacher in teachers.iterrows()
-# }
-teachers_occupied = create_occupy_table(teachers.iterrows(), periods_column, label)
-
-# grades_occupied: dict[Any, dict[int, None | int]] = {
-#     get_list(course["Grades"])[0]: {int(i): None for i in range(1, 8)}
-#     for _, course, in courses.iterrows()
-# }
-grades_occupied = create_occupy_table(
-    courses.iterrows(),
-    lambda _, __: range(1, 8),
-    lambda _, value: get_list(value["Grades"])[0],
-)
-
-
-def fits_requirements(period, course, room_name, day, course_name):
-
+def fits_requirements(period, course, room_name, day, section):
+    """Check if a configuration of a course fits all the requirements."""
     teacher_working_periods = teachers_occupied[course["Teacher"]][day]
-
-    info = (period, course_name, room_name, day, course)
 
     worked_in_a_row_recently = 0
     for work_period, occupied in teacher_working_periods.items():
@@ -125,84 +166,107 @@ def fits_requirements(period, course, room_name, day, course_name):
         else:
             worked_in_a_row_recently += 1
     else:
-        decline("not available", *info)
+        # "teacher teaching or not available"
         return False
 
     if worked_in_a_row_recently > 3:
-        decline("needs a break", *info)
+        # "teacher needs a break", *info)
         return False
 
     room_periods = rooms_occupied[room_name][day]
 
     if room_periods.get(period, 99) == 99:
-        decline("room not available", *info)
+        # decline("room not available", *info)
         return False
 
     if room_periods[period] != None:
-        decline("room full", *info)
+        # decline("room being used", *info)
         return False
 
-    on_all_days = course["Days"].upper() == "ALL"
-    on_day = day in [x.lower() for x in get_list(course["Days"])]
-    if not on_day and not on_all_days:
-        decline("wrong day", *info)  # can speed up by putting this outside
-        return False
-
-    core_class = course["Type"] == "Core"
-    afternoon_class = period > 4
-    if afternoon_class and core_class:
-        decline(
-            "afternoon, core class", *info
-        )  # can speed up by looping only over the periods
-        return False
-
-    morning_class = period <= 4
-    if morning_class and not core_class:
-        decline("morning, non-core class", *info)
-        return False
-
-    for grade in get_list(course["Grades"]):
-        grade_periods_occupied = grades_occupied[grade][day]
-        if grade_periods_occupied[period] != None:
-            decline("Grade busy", *info)
-            return
+    grade_periods_occupied = grades_occupied[course["Grades"]][section][day]
+    if grade_periods_occupied[period] != None:
+        # decline("Grade busy", *info)
+        return
 
     return True
 
 
-def add_course(period, course, course_name, room_name, day):
+def occupy_course(period, course, room_name, day, course_name, section):
+    """Put the course in the occupied dictionaries."""
     teachers_occupied[course["Teacher"]][day][period] = course_name
 
     rooms_occupied[room_name][day][period] = course_name
 
-    # course["Letter"]
-    for grade in get_list(course["Grades"]):
-        grades_occupied[grade][day][period] = course_name
-
-    # days_occupied[day][period] = course_name
+    grades_occupied[course["Grades"]][section][day][period] = course_name
 
 
-def try_combos():
-    for day in DAYS:
-        for course_name, course in courses.iterrows():
-            for possible_room in [course["Room1"], course["Room2"], course["Room3"]]:
-                if type(possible_room) == float:  # empty
-                    continue
+def find_configuration(course, day, course_name, section):
+    for possible_room in [
+        course["Room1"],
+        course["Room2"],
+        course["Room3"],
+    ]:  # precalculate
+        if type(possible_room) in [float, numpy.float64]:  # empty
+            continue
 
-                for i in range(7):
-                    if fits_requirements(
-                        i + 1, course, possible_room, day, course_name
-                    ):
-                        add_course(i + 1, course, course_name, possible_room, day)
-                        break
+        for period in course["Periods"]:
+            if fits_requirements(period, course, possible_room, day, section):
+                return period, course, possible_room, day, course_name, section
+    return False
 
 
-try_combos()
+def get_obeys(period_slot, section):
+    global rooms_occupied, teachers_occupied, grades_occupied
 
-print(rooms_occupied)
-import random
+    obeys = []
+    for day, course_name in period_slot.items():
+        course = courses.loc[course_name]
+        result = find_configuration(course, day, course_name, section)
+        if result:
+            obeys.append(result)
+        else:
+            # error
+            for grade, value in period_slots.items():
+                for section, value in value.items():
+                    shuffle(period_slots[grade][section])
 
-x = list(grades_occupied.items())
-random.shuffle(x)
-print(x)
-print(teachers_occupied)
+            rooms_occupied, teachers_occupied, grades_occupied = (
+                generate_occupy_tables()
+            )
+
+            do()
+            return "done"
+    return obeys
+
+
+def do():
+    for grade, sections in period_slots.items():
+        for section, period_slots_ in sections.items():
+            for period_slot in period_slots_:
+                obeys = get_obeys(period_slot, section)
+
+                if obeys == "done":
+                    return
+
+                for result in obeys:
+                    occupy_course(*result)
+
+
+rooms_occupied, teachers_occupied, grades_occupied = generate_occupy_tables()
+precalculate_data()
+period_slots = calculate_period_slots()
+
+start = time()
+do()
+print(time() - start)
+
+
+for key, grade in {
+    key: str(pd.DataFrame.from_dict(day)) for key, day in grades_occupied[9].items()
+}.items():
+    print(key)
+    print(grade)
+    print()
+
+
+# TODO assign rooms to different subjects
