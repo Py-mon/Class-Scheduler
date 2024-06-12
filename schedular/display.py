@@ -6,8 +6,8 @@ def get_slots():
     string = "\n"
     for Grade, _ in grades.iterrows():
         for key, grade in {
-            key: str(pd.DataFrame.from_dict(day))  # type: ignore
-            for key, day in period_slots[int(Grade)].items()  # type: ignore
+            key: str(pd.DataFrame.from_dict(day))
+            for key, day in period_slots[int(Grade)].items()
         }.items():
             string += key + "\n"
             string += grade + "\n\n"

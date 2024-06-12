@@ -3,6 +3,9 @@ import pandas as pd
 from schedular.data import DAYS, PERIODS_RANGE, courses, grades
 from schedular.logger import debug
 
+class PeriodSlots:
+    period_slots = {}
+    
 
 def calculate_period_slots():
     period_slots = {
@@ -34,7 +37,7 @@ def calculate_period_slots():
     string = ""
     for Grade, _ in period_slots.items():
         for key, grade in {
-            key: str(pd.DataFrame.from_dict(day)) # type: ignore
+            key: str(pd.DataFrame.from_dict(day))  # type: ignore
             for key, day in period_slots[Grade].items()
         }.items():
             string += key + "\n"
@@ -43,3 +46,4 @@ def calculate_period_slots():
     debug("\n" + str(string))
 
     return period_slots
+

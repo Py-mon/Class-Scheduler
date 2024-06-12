@@ -5,8 +5,9 @@ from pandas import Series
 
 import schedular.data as data
 from schedular.data import courses, grades, rooms, teachers
-from schedular.occupy_tables import Occupied
 from schedular.logger import debug
+from schedular.occupy_tables import Occupied
+
 
 def section_number_to_letter(number):
     """
@@ -48,7 +49,7 @@ def keyword(string, keyword: str, result: Any):
     """
     if isinstance(string, int):
         return string
-    
+
     string = string.lower()
     if string == keyword.lower():
         return result
@@ -135,22 +136,23 @@ def precalculate_data():
                 raise ValueError("UNKNOWN ROOM TYPE", course["Room Type"])
 
         set_available_rooms()
-        
+
     debug(courses, rooms, teachers)
 
 
 def get_open_teacher_periods(course, day):
+    # TODO might have bugs
     periods = Occupied.teachers[course["Teacher"]][day]
     result = list(periods.keys())
-    trues = 0
-    for i, x in periods.items():
-        if x:
+    teaching_in_a_row = 0
+    for i, teaching_course in periods.items():
+        if teaching_course:
             result.remove(i)
-            trues += 1
+            teaching_in_a_row += 1
         else:
-            trues = 0
+            teaching_in_a_row = 0
 
-        if trues == 3:
+        if teaching_in_a_row == 3:
             try:
                 result.remove(i + 1)
             except ValueError:
