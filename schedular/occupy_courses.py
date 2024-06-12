@@ -5,9 +5,10 @@ import pandas as pd
 
 from schedular.data import DAYS, PERIODS_RANGE, courses, rooms
 from schedular.data_convert import get_open_teacher_periods, intersection
+from schedular.display import debug2
 from schedular.logger import debug
 from schedular.occupy_tables import Occupied, generate_occupy_tables, occupy_course
-from schedular.display import debug2
+
 
 def find_slot_configuration(
     period_slots, period_slot, section, open_slots, grade, total_open
@@ -15,10 +16,10 @@ def find_slot_configuration(
     debug(total_open)
     debug(period_slot)
 
-    obeys = []
+    courses_to_add = []
     put_period = None
 
-    def next_slot(period):
+    def slot_can_fit(period):
         for day, course_name in period_slot.items():
             if course_name == None:
                 continue
@@ -33,8 +34,8 @@ def find_slot_configuration(
             )
             if not result:
                 continue
-            
-            obeys.append(result)
+
+            courses_to_add.append(result)
 
             if len(course["Grades"]) > 1:
                 for grade_ in course["Grades"]:
@@ -50,7 +51,7 @@ def find_slot_configuration(
                         grade_,
                     )
                     if config:
-                        obeys.append(config)
+                        courses_to_add.append(config)
                     else:
                         return False
 
@@ -68,16 +69,13 @@ def find_slot_configuration(
                         grade,
                     )
                     if config:
-                        obeys.append(config)
+                        courses_to_add.append(config)
                     else:
                         return False
-            else:
-                return False
         return True
 
     for period in open_slots:
-        x = next_slot(period)
-        if x:
+        if slot_can_fit(period):
             put_period = period
             break
     else:
@@ -94,11 +92,11 @@ def find_slot_configuration(
         do(period_slots)
         return 0, "done"
 
-    return put_period, obeys
+    return put_period, courses_to_add
 
 
 def do(period_slots):
-    all_open = {} # TODO speed up potential
+    all_open = {}  # TODO speed up potential
     for grade, sections in period_slots.items():
         grade_open = {}
         all_open[grade] = grade_open
@@ -114,7 +112,7 @@ def do(period_slots):
                 if period_slot == {day: None for day in DAYS}:
                     continue
 
-                period, obeys = find_slot_configuration(
+                period, courses_to_add = find_slot_configuration(
                     period_slots,
                     period_slot,
                     section,
@@ -123,24 +121,22 @@ def do(period_slots):
                     all_open,  # intersection(*all_open)
                 )
 
-                if obeys == "done":
+                if courses_to_add == "done":
                     return
 
-                for result in obeys:
+                for result in courses_to_add:
                     if not result:
                         continue
                     occupy_course(*result)
 
                 open_slots.remove(period)
 
-                debug("ADDED ", obeys[0][-3], " AT ", period)
+                debug("ADDED ", courses_to_add[0][-3], " AT ", period)
 
                 debug2()
 
 
-def fits_requirements(
-    period, course, room_name, day, section, grade
-):
+def fits_requirements(period, course, room_name, day, section, grade):
     """Check if a configuration of a course fits all the requirements."""
     room_periods = Occupied.rooms[room_name][day]
 
@@ -164,7 +160,6 @@ def fits_requirements(
     return False
 
 
-
 def find_configuration(course, day, course_name, section, period, grade):
     # TODO  Check if All Grades can make it to the class without having another class that is just for them
     # for grade in course["Grades"]:
@@ -178,9 +173,7 @@ def find_configuration(course, day, course_name, section, period, grade):
         if period not in rooms.loc[possible_room]["Periods"]:
             continue
 
-        if fits_requirements(
-            period, course, possible_room, day, section, grade
-        ):
+        if fits_requirements(period, course, possible_room, day, section, grade):
             return period, course, possible_room, day, course_name, section, grade
 
     return False
