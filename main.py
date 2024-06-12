@@ -3,7 +3,7 @@ from random import randint, shuffle
 from string import ascii_uppercase
 from time import time
 from typing import Any
-from logger import logger
+from schedular.logger import logger
 
 import numpy
 import pandas as pd

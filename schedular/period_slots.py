@@ -1,3 +1,8 @@
+import pandas as pd
+
+from schedular.data import DAYS, PERIODS_RANGE, courses, grades
+from schedular.logger import debug
+
 
 def calculate_period_slots():
     period_slots = {
@@ -21,7 +26,7 @@ def calculate_period_slots():
             x = course["Sections"][0]
         for section in x:
             grade = course["Grades"][0]
-            #for grade in course["Grades"]:
+            # for grade in course["Grades"]:
             index = get_open_index(period_slots[grade][section], course["Days"])
             for day in course["Days"]:
                 period_slots[grade][section][index][day] = course_name  # type: ignore
@@ -29,12 +34,12 @@ def calculate_period_slots():
     string = ""
     for Grade, _ in period_slots.items():
         for key, grade in {
-            key: str(pd.DataFrame.from_dict(day))  # type: ignore
+            key: str(pd.DataFrame.from_dict(day)) # type: ignore
             for key, day in period_slots[Grade].items()
         }.items():
             string += key + "\n"
             string += grade + "\n\n"
 
-    logger.debug("\n" + str(string))
+    debug("\n" + str(string))
 
     return period_slots

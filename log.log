@@ -1,5 +1,4 @@
-DEBUG: 
-                 Periods
+DEBUG:                  Periods
 Name                    
 Hawkinson  1,2,3,4,5,6,7
 Hanson           4,5,6,7
@@ -11,8 +10,7 @@ Stockman   1,2,3,4,5,6,7
 Peters     1,2,3,4,5,6,7
 Mi         1,2,3,4,5,6,7
 Strand     1,2,3,4,5,6,7
-DEBUG: 
-            Periods  Type
+DEBUG:             Periods  Type
 Name                     
 201   1,2,3,4,5,6,7   Any
 202   1,2,3,4,5,6,7   Any
@@ -22,8 +20,7 @@ Gym   1,2,3,4,5,6,7   Gym
 204   1,2,3,4,5,6,7   Any
 206   1,2,3,4,5,6,7   Any
 Band  1,2,3,4,5,6,7  Band
-DEBUG: 
-           Teacher                               Days   Type Grades Sections  \
+DEBUG:            Teacher                               Days   Type Grades Sections  \
 Name                                                                           
 Bible    Hawkinson                                ALL   Core      8      NaN   
 ArtA         Chant                             Friday  Other      8        A   
@@ -56,64 +53,39 @@ Choir         Any
 Band         Band  
 StudyA        Any  
 StudyB        Any  
-DEBUG: 
-                         Periods
-Name                            
-Hawkinson  (1, 2, 3, 4, 5, 6, 7)
-Hanson              (4, 5, 6, 7)
-Chant      (1, 2, 3, 4, 5, 6, 7)
-Coleman    (1, 2, 3, 4, 5, 6, 7)
-Lutio      (1, 2, 3, 4, 5, 6, 7)
-Curtis     (1, 2, 3, 4, 5, 6, 7)
-Stockman   (1, 2, 3, 4, 5, 6, 7)
-Peters     (1, 2, 3, 4, 5, 6, 7)
-Mi         (1, 2, 3, 4, 5, 6, 7)
-Strand     (1, 2, 3, 4, 5, 6, 7)
-DEBUG: 
-                    Periods  Type
-Name                             
-201   (1, 2, 3, 4, 5, 6, 7)   Any
-202   (1, 2, 3, 4, 5, 6, 7)   Any
-203   (1, 2, 3, 4, 5, 6, 7)   Any
-Gym   (1, 2, 3, 4, 5, 6, 7)   Gym
-205   (1, 2, 3, 4, 5, 6, 7)   Any
-204   (1, 2, 3, 4, 5, 6, 7)   Any
-206   (1, 2, 3, 4, 5, 6, 7)   Any
-Band  (1, 2, 3, 4, 5, 6, 7)  Band
-DEBUG: 
-           Teacher                                            Days   Type  \
+DEBUG:            Teacher                                            Days   Type  \
 Name                                                                        
 Bible    Hawkinson  (monday, tuesday, wednesday, thursday, friday)   Core   
-ArtA         Chant                                       (friday,)  Other   
-ArtB         Chant                                    (wednesday,)  Other   
-Gym         Peters                                (monday, friday)  Other   
-Chinese         Mi                             (tuesday, thursday)  Other   
-Spanish      Lutio                             (tuesday, thursday)  Other   
+ArtA         Chant                                        [friday]  Other   
+ArtB         Chant                                     [wednesday]  Other   
+Gym         Peters                                [monday, friday]  Other   
+Chinese         Mi                             [tuesday, thursday]  Other   
+Spanish      Lutio                             [tuesday, thursday]  Other   
 Lang       Coleman  (monday, tuesday, wednesday, thursday, friday)   Core   
 Science     Hanson  (monday, tuesday, wednesday, thursday, friday)  Other   
 Math        Strand  (monday, tuesday, wednesday, thursday, friday)   Core   
 History   Stockman  (monday, tuesday, wednesday, thursday, friday)   Core   
-Choir        Lutio          (monday, tuesday, wednesday, thursday)  Other   
-Band        Curtis          (monday, tuesday, wednesday, thursday)  Other   
-StudyA      Strand                                    (wednesday,)  Other   
-StudyB      Strand                                       (friday,)  Other   
+Choir        Lutio          [monday, tuesday, wednesday, thursday]  Other   
+Band        Curtis          [monday, tuesday, wednesday, thursday]  Other   
+StudyA      Strand                                     [wednesday]  Other   
+StudyB      Strand                                        [friday]  Other   
 
          Grades Sections Room Type       Periods  \
 Name                                               
-Bible      (8,)   [A, B]       Any  {1, 2, 3, 4}   
-ArtA       (8,)     (A,)       Any     {5, 6, 7}   
-ArtB       (8,)     (B,)       Any     {5, 6, 7}   
-Gym        (8,)   [A, B]       Gym     {5, 6, 7}   
-Chinese    (8,)     (A,)       Any     {5, 6, 7}   
-Spanish    (8,)     (B,)       Any     {5, 6, 7}   
-Lang       (8,)   [A, B]       Any  {1, 2, 3, 4}   
-Science    (8,)   [A, B]       Any     {5, 6, 7}   
-Math       (8,)   [A, B]       206  {1, 2, 3, 4}   
-History    (8,)   [A, B]       Any  {1, 2, 3, 4}   
-Choir    (8, 7)     (A,)       Any     {5, 6, 7}   
-Band     (8, 7)     (B,)      Band     {5, 6, 7}   
-StudyA     (8,)     (A,)       Any     {5, 6, 7}   
-StudyB     (8,)     (B,)       Any     {5, 6, 7}   
+Bible       [8]   [A, B]       Any  {1, 2, 3, 4}   
+ArtA        [8]      [A]       Any     {5, 6, 7}   
+ArtB        [8]      [B]       Any     {5, 6, 7}   
+Gym         [8]   [A, B]       Gym     {5, 6, 7}   
+Chinese     [8]      [A]       Any     {5, 6, 7}   
+Spanish     [8]      [B]       Any     {5, 6, 7}   
+Lang        [8]   [A, B]       Any  {1, 2, 3, 4}   
+Science     [8]   [A, B]       Any     {5, 6, 7}   
+Math        [8]   [A, B]       206  {1, 2, 3, 4}   
+History     [8]   [A, B]       Any  {1, 2, 3, 4}   
+Choir    [8, 7]      [A]       Any     {5, 6, 7}   
+Band     [8, 7]      [B]      Band     {5, 6, 7}   
+StudyA      [8]      [A]       Any     {5, 6, 7}   
+StudyB      [8]      [B]       Any     {5, 6, 7}   
 
                                   Rooms  Same  
 Name                                           
@@ -130,7 +102,27 @@ History  (201, 202, 203, 205, 204, 206)  None
 Choir    (201, 202, 203, 205, 204, 206)  None  
 Band                            (Band,)  None  
 StudyA   (201, 202, 203, 205, 204, 206)  None  
-StudyB   (201, 202, 203, 205, 204, 206)  None  
+StudyB   (201, 202, 203, 205, 204, 206)  None                       Periods  Type
+Name                             
+201   [1, 2, 3, 4, 5, 6, 7]   Any
+202   [1, 2, 3, 4, 5, 6, 7]   Any
+203   [1, 2, 3, 4, 5, 6, 7]   Any
+Gym   [1, 2, 3, 4, 5, 6, 7]   Gym
+205   [1, 2, 3, 4, 5, 6, 7]   Any
+204   [1, 2, 3, 4, 5, 6, 7]   Any
+206   [1, 2, 3, 4, 5, 6, 7]   Any
+Band  [1, 2, 3, 4, 5, 6, 7]  Band                          Periods
+Name                            
+Hawkinson  [1, 2, 3, 4, 5, 6, 7]
+Hanson              [4, 5, 6, 7]
+Chant      [1, 2, 3, 4, 5, 6, 7]
+Coleman    [1, 2, 3, 4, 5, 6, 7]
+Lutio      [1, 2, 3, 4, 5, 6, 7]
+Curtis     [1, 2, 3, 4, 5, 6, 7]
+Stockman   [1, 2, 3, 4, 5, 6, 7]
+Peters     [1, 2, 3, 4, 5, 6, 7]
+Mi         [1, 2, 3, 4, 5, 6, 7]
+Strand     [1, 2, 3, 4, 5, 6, 7]
 DEBUG: 
 A
   monday tuesday wednesday thursday friday
