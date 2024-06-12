@@ -6,8 +6,8 @@ import pandas as pd
 from schedular.data import DAYS, PERIODS_RANGE, courses, rooms
 from schedular.data_convert import get_open_teacher_periods, intersection
 from schedular.logger import debug
-from schedular.occupy_tables import generate_occupy_tables, occupy_course
-from schedular.occupy_tables import Occupied
+from schedular.occupy_tables import Occupied, generate_occupy_tables, occupy_course
+from schedular.display import debug2
 
 def find_slot_configuration(
     period_slots, period_slot, section, open_slots, grade, total_open
@@ -29,64 +29,48 @@ def find_slot_configuration(
                 return False
 
             result = find_configuration(
-                course, day, course_name, section, period, grade, total_open
+                course, day, course_name, section, period, grade
             )
-            if result:
-                obeys.append(result)
+            if not result:
+                continue
+            
+            obeys.append(result)
 
-                if len(course["Grades"]) > 1:
-                    for grade_ in course["Grades"]:
-                        if grade_ == grade:
-                            continue
+            if len(course["Grades"]) > 1:
+                for grade_ in course["Grades"]:
+                    if grade_ == grade:
+                        continue
 
-                        for possible_room in course["Rooms"]:
-                            if type(possible_room) in [float, numpy.float64]:  # empty
-                                continue
+                    config = find_configuration(
+                        course,
+                        day,
+                        course_name,
+                        section,
+                        period,
+                        grade_,
+                    )
+                    if config:
+                        obeys.append(config)
+                    else:
+                        return False
 
-                            if period not in rooms.loc[possible_room]["Periods"]:
-                                continue
+            if course["Same"]:
+                for section_ in course["Sections"]:
+                    if section_ == section:
+                        continue
 
-                            result2 = find_configuration(
-                                course,
-                                day,
-                                course_name,
-                                section,
-                                period,
-                                grade_,
-                                total_open,
-                            )
-                            obeys.append(result2)
-                            break
-                        else:
-                            return False
-
-                if course["Same"]:
-                    print("SAME", course_name)
-
-                    for section_ in course["Sections"]:
-                        if section_ == section:
-                            continue
-
-                        for possible_room in course["Rooms"]:
-                            if type(possible_room) in [float, numpy.float64]:  # empty
-                                continue
-
-                            if period not in rooms.loc[possible_room]["Periods"]:
-                                continue
-
-                            result2 = find_configuration(
-                                course,
-                                day,
-                                course_name,
-                                section_,
-                                period,
-                                grade,
-                                total_open,
-                            )
-                            obeys.append(result2)
-                            break
-                        else:
-                            return False
+                    config = find_configuration(
+                        course,
+                        day,
+                        course_name,
+                        section_,
+                        period,
+                        grade,
+                    )
+                    if config:
+                        obeys.append(config)
+                    else:
+                        return False
             else:
                 return False
         return True
@@ -95,29 +79,17 @@ def find_slot_configuration(
         x = next_slot(period)
         if x:
             put_period = period
-
             break
     else:
         debug("COULDN'T FIND CONFIGURATION FOR")
         # display(Occupied.grades)
-        for key, grade in {
-            key: str(pd.DataFrame.from_dict(day))
-            for key, day in Occupied.grades[8].items()
-        }.items():
-            debug(key)
-            debug(grade)
-        for key, grade in {
-            key: str(pd.DataFrame.from_dict(day))
-            for key, day in Occupied.grades[7].items()
-        }.items():
-            debug(key)
-            debug(grade)
+        debug2()
 
         for grade, value in period_slots.items():
             for section, value in value.items():
                 shuffle(period_slots[grade][section])
 
-        Occupied.rooms, Occupied.teachers, Occupied.grades = generate_occupy_tables()
+        generate_occupy_tables()
 
         do(period_slots)
         return 0, "done"
@@ -126,7 +98,7 @@ def find_slot_configuration(
 
 
 def do(period_slots):
-    all_open = {}
+    all_open = {} # TODO speed up potential
     for grade, sections in period_slots.items():
         grade_open = {}
         all_open[grade] = grade_open
@@ -161,26 +133,13 @@ def do(period_slots):
 
                 open_slots.remove(period)
 
-                # period, course, possible_room, day, course_name, section, grade
-
                 debug("ADDED ", obeys[0][-3], " AT ", period)
 
-                for key, grade_ in {
-                    key: str(pd.DataFrame.from_dict(day))
-                    for key, day in Occupied.grades[8].items()
-                }.items():
-                    debug(key)
-                    debug(grade_)
-                for key, grade_ in {
-                    key: str(pd.DataFrame.from_dict(day))
-                    for key, day in Occupied.grades[7].items()
-                }.items():
-                    debug(key)
-                    debug(grade_)
+                debug2()
 
 
 def fits_requirements(
-    period, course, room_name, day, section, course_name, grade, total_open
+    period, course, room_name, day, section, grade
 ):
     """Check if a configuration of a course fits all the requirements."""
     room_periods = Occupied.rooms[room_name][day]
@@ -205,7 +164,8 @@ def fits_requirements(
     return False
 
 
-def find_configuration(course, day, course_name, section, period, grade, total_open):
+
+def find_configuration(course, day, course_name, section, period, grade):
     # TODO  Check if All Grades can make it to the class without having another class that is just for them
     # for grade in course["Grades"]:
     #     if Occupied.grades[grade][section][day][period] != None and not Occupied.grades[grade][section][day][period]["Grades"] == (grade,): # this might not work havent tested
@@ -219,7 +179,7 @@ def find_configuration(course, day, course_name, section, period, grade, total_o
             continue
 
         if fits_requirements(
-            period, course, possible_room, day, section, course_name, grade, total_open
+            period, course, possible_room, day, section, grade
         ):
             return period, course, possible_room, day, course_name, section, grade
 

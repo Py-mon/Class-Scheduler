@@ -1,17 +1,8 @@
 import pandas as pd
+
 from schedular.data import grades
-
-
-def get_slots():
-    string = "\n"
-    for Grade, _ in grades.iterrows():
-        for key, grade in {
-            key: str(pd.DataFrame.from_dict(day))
-            for key, day in period_slots[int(Grade)].items()
-        }.items():
-            string += key + "\n"
-            string += grade + "\n\n"
-    return string
+from schedular.logger import debug
+from schedular.occupy_tables import Occupied
 
 
 def display(occupied):
@@ -21,3 +12,16 @@ def display(occupied):
         print(key)
         print(grade)
         print()
+
+
+def debug2():
+    for key, grade_ in {
+        key: str(pd.DataFrame.from_dict(day)) for key, day in Occupied.grades[8].items()
+    }.items():
+        debug(key)
+        debug(grade_)
+    for key, grade_ in {
+        key: str(pd.DataFrame.from_dict(day)) for key, day in Occupied.grades[7].items()
+    }.items():
+        debug(key)
+        debug(grade_)

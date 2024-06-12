@@ -121,7 +121,7 @@ def precalculate_data():
             set(
                 data.MORNING_RANGE if course["Type"] == "Core" else data.AFTERNOON_RANGE
             ),
-            # teachers.loc[course["Teacher"]]["Periods"],
+            # teachers.loc[course["Teacher"]]["Periods"], calculates this more @ get_open_teacher_periods
         )
 
         def set_available_rooms():

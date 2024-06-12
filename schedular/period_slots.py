@@ -3,9 +3,6 @@ import pandas as pd
 from schedular.data import DAYS, PERIODS_RANGE, courses, grades
 from schedular.logger import debug
 
-class PeriodSlots:
-    period_slots = {}
-    
 
 def calculate_period_slots():
     period_slots = {
@@ -24,10 +21,10 @@ def calculate_period_slots():
     for course_name, course in sorted(
         list(courses.iterrows()), key=lambda x: len(x[1]["Days"]), reverse=True
     ):  # might not work
-        x = course["Sections"]
+        sections = course["Sections"]
         if course["Same"]:
-            x = course["Sections"][0]
-        for section in x:
+            sections = course["Sections"][0]
+        for section in sections:
             grade = course["Grades"][0]
             # for grade in course["Grades"]:
             index = get_open_index(period_slots[grade][section], course["Days"])
@@ -43,7 +40,6 @@ def calculate_period_slots():
             string += key + "\n"
             string += grade + "\n\n"
 
-    debug("\n" + str(string))
+    debug(string)
 
     return period_slots
-
