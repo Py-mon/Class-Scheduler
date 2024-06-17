@@ -5,11 +5,11 @@ from schedular.logger import debug
 from schedular.occupy_tables import Occupied
 
 
-def display(occupied):
+def display(occupied, key1):
     for key, grade in {
         key: str(pd.DataFrame.from_dict(day)) for key, day in occupied.items()
     }.items():
-        print(key)
+        print(str(key1) + key)
         print(grade)
         print()
 

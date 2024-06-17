@@ -30,12 +30,11 @@ Chinese         Mi                   Tuesday,Thursday  Other      8        A
 Spanish      Lutio                   Tuesday,Thursday  Other      8        B   
 Lang       Coleman                                ALL   Core      8      NaN   
 Science     Hanson                                ALL  Other      8      NaN   
-Math        Strand                                ALL   Core   8, 7      NaN   
+Math        Strand                                ALL   Core      8      NaN   
 History   Stockman                                ALL   Core      8      NaN   
 Choir        Lutio  Monday,Tuesday,Wednesday,Thursday  Other   8, 7        A   
 Band        Curtis  Monday,Tuesday,Wednesday,Thursday  Other   8, 7        B   
 StudyA      Strand                          Wednesday  Other      8        A   
-Bible7       Chant                                ALL   Core      7      NaN   
 StudyB      Strand                             Friday  Other      8        B   
 
         Room Type  
@@ -53,7 +52,6 @@ History       Any
 Choir         Any  
 Band         Band  
 StudyA        Any  
-Bible7        Any  
 StudyB        Any  
 DEBUG:            Teacher                                            Days   Type  \
 Name                                                                        
@@ -70,7 +68,6 @@ History   Stockman  (monday, tuesday, wednesday, thursday, friday)   Core
 Choir        Lutio          [monday, tuesday, wednesday, thursday]  Other   
 Band        Curtis          [monday, tuesday, wednesday, thursday]  Other   
 StudyA      Strand                                     [wednesday]  Other   
-Bible7       Chant  (monday, tuesday, wednesday, thursday, friday)   Core   
 StudyB      Strand                                        [friday]  Other   
 
          Grades Sections Room Type       Periods  \
@@ -83,12 +80,11 @@ Chinese     [8]      [A]       Any     {5, 6, 7}
 Spanish     [8]      [B]       Any     {5, 6, 7}   
 Lang        [8]   [A, B]       Any  {1, 2, 3, 4}   
 Science     [8]   [A, B]       Any     {5, 6, 7}   
-Math     [8, 7]   [A, B]       206  {1, 2, 3, 4}   
+Math        [8]   [A, B]       206  {1, 2, 3, 4}   
 History     [8]   [A, B]       Any  {1, 2, 3, 4}   
 Choir    [8, 7]      [A]       Any     {5, 6, 7}   
 Band     [8, 7]      [B]      Band     {5, 6, 7}   
 StudyA      [8]      [A]       Any     {5, 6, 7}   
-Bible7      [7]   [A, B]       Any  {1, 2, 3, 4}   
 StudyB      [8]      [B]       Any     {5, 6, 7}   
 
                                   Rooms  Same  
@@ -106,7 +102,6 @@ History  (201, 202, 203, 205, 204, 206)  None
 Choir    (201, 202, 203, 205, 204, 206)  None  
 Band                            (Band,)  None  
 StudyA   (201, 202, 203, 205, 204, 206)  None  
-Bible7   (201, 202, 203, 205, 204, 206)  None  
 StudyB   (201, 202, 203, 205, 204, 206)  None                       Periods  Type
 Name                             
 201   [1, 2, 3, 4, 5, 6, 7]   Any
@@ -129,24 +124,24 @@ Peters     [1, 2, 3, 4, 5, 6, 7]
 Mi         [1, 2, 3, 4, 5, 6, 7]
 Strand     [1, 2, 3, 4, 5, 6, 7]
 DEBUG: A
-   monday tuesday wednesday thursday  friday
-0  Bible7  Bible7    Bible7   Bible7  Bible7
-1    None    None      None     None    None
-2    None    None      None     None    None
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
+  monday tuesday wednesday thursday friday
+0   None    None      None     None   None
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
 
 B
-   monday tuesday wednesday thursday  friday
-0  Bible7  Bible7    Bible7   Bible7  Bible7
-1    None    None      None     None    None
-2    None    None      None     None    None
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
+  monday tuesday wednesday thursday friday
+0   None    None      None     None   None
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
 
 A
     monday  tuesday wednesday thursday   friday
@@ -170,90 +165,7 @@ B
 
 
 DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Bible7', 'tuesday': 'Bible7', 'wednesday': 'Bible7', 'thursday': 'Bible7', 'friday': 'Bible7'}
-DEBUG: ADDED  Bible7  AT  1
-DEBUG: A
-DEBUG:   monday tuesday wednesday thursday friday
-1   None    None      None     None   None
-2   None    None      None     None   None
-3   None    None      None     None   None
-4   None    None      None     None   None
-5   None    None      None     None   None
-6   None    None      None     None   None
-7   None    None      None     None   None
-DEBUG: B
-DEBUG:   monday tuesday wednesday thursday friday
-1   None    None      None     None   None
-2   None    None      None     None   None
-3   None    None      None     None   None
-4   None    None      None     None   None
-5   None    None      None     None   None
-6   None    None      None     None   None
-7   None    None      None     None   None
-DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: B
-DEBUG:   monday tuesday wednesday thursday friday
-1   None    None      None     None   None
-2   None    None      None     None   None
-3   None    None      None     None   None
-4   None    None      None     None   None
-5   None    None      None     None   None
-6   None    None      None     None   None
-7   None    None      None     None   None
-DEBUG: {7: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Bible7', 'tuesday': 'Bible7', 'wednesday': 'Bible7', 'thursday': 'Bible7', 'friday': 'Bible7'}
-DEBUG: ADDED  Bible7  AT  2
-DEBUG: A
-DEBUG:   monday tuesday wednesday thursday friday
-1   None    None      None     None   None
-2   None    None      None     None   None
-3   None    None      None     None   None
-4   None    None      None     None   None
-5   None    None      None     None   None
-6   None    None      None     None   None
-7   None    None      None     None   None
-DEBUG: B
-DEBUG:   monday tuesday wednesday thursday friday
-1   None    None      None     None   None
-2   None    None      None     None   None
-3   None    None      None     None   None
-4   None    None      None     None   None
-5   None    None      None     None   None
-6   None    None      None     None   None
-7   None    None      None     None   None
-DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: B
-DEBUG:    monday tuesday wednesday thursday  friday
-1    None    None      None     None    None
-2  Bible7  Bible7    Bible7   Bible7  Bible7
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: {7: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 3, 4, 5, 6, 7]}, 8: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
 DEBUG: {'monday': 'Bible', 'tuesday': 'Bible', 'wednesday': 'Bible', 'thursday': 'Bible', 'friday': 'Bible'}
-DEBUG: room being used 201 A Hawkinson 1 monday 8 here
-DEBUG: room being used 201 A Hawkinson 1 tuesday 8 here
-DEBUG: room being used 201 A Hawkinson 1 wednesday 8 here
-DEBUG: room being used 201 A Hawkinson 1 thursday 8 here
-DEBUG: room being used 201 A Hawkinson 1 friday 8 here
 DEBUG: ADDED  Bible  AT  1
 DEBUG: A
 DEBUG:   monday tuesday wednesday thursday friday
@@ -274,30 +186,25 @@ DEBUG:   monday tuesday wednesday thursday friday
 6   None    None      None     None   None
 7   None    None      None     None   None
 DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
 DEBUG: B
-DEBUG:    monday tuesday wednesday thursday  friday
-1    None    None      None     None    None
-2  Bible7  Bible7    Bible7   Bible7  Bible7
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: {7: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 3, 4, 5, 6, 7]}, 8: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
+DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
 DEBUG: {'monday': 'Lang', 'tuesday': 'Lang', 'wednesday': 'Lang', 'thursday': 'Lang', 'friday': 'Lang'}
-DEBUG: room being used 201 A Coleman 2 monday 8 here
-DEBUG: room being used 201 A Coleman 2 tuesday 8 here
-DEBUG: room being used 201 A Coleman 2 wednesday 8 here
-DEBUG: room being used 201 A Coleman 2 thursday 8 here
-DEBUG: room being used 201 A Coleman 2 friday 8 here
 DEBUG: ADDED  Lang  AT  2
 DEBUG: A
 DEBUG:   monday tuesday wednesday thursday friday
@@ -318,24 +225,24 @@ DEBUG:   monday tuesday wednesday thursday friday
 6   None    None      None     None   None
 7   None    None      None     None   None
 DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
 DEBUG: B
-DEBUG:    monday tuesday wednesday thursday  friday
-1    None    None      None     None    None
-2  Bible7  Bible7    Bible7   Bible7  Bible7
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: {7: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 3, 4, 5, 6, 7]}, 8: {'A': [3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
+DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
 DEBUG: {'monday': 'Science', 'tuesday': 'Science', 'wednesday': 'Science', 'thursday': 'Science', 'friday': 'Science'}
 DEBUG: ADDED  Science  AT  5
 DEBUG: A
@@ -357,24 +264,24 @@ DEBUG:   monday tuesday wednesday thursday friday
 6   None    None      None     None   None
 7   None    None      None     None   None
 DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
 DEBUG: B
-DEBUG:    monday tuesday wednesday thursday  friday
-1    None    None      None     None    None
-2  Bible7  Bible7    Bible7   Bible7  Bible7
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: {7: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 3, 4, 5, 6, 7]}, 8: {'A': [3, 4, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
+DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [3, 4, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
 DEBUG: {'monday': 'Math', 'tuesday': 'Math', 'wednesday': 'Math', 'thursday': 'Math', 'friday': 'Math'}
 DEBUG: ADDED  Math  AT  3
 DEBUG: A
@@ -396,24 +303,24 @@ DEBUG:   monday tuesday wednesday thursday friday
 6   None    None      None     None   None
 7   None    None      None     None   None
 DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    Math    Math      Math     Math    Math
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
 DEBUG: B
-DEBUG:    monday tuesday wednesday thursday  friday
-1    None    None      None     None    None
-2  Bible7  Bible7    Bible7   Bible7  Bible7
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: {7: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 3, 4, 5, 6, 7]}, 8: {'A': [4, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
+DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [4, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
 DEBUG: {'monday': 'History', 'tuesday': 'History', 'wednesday': 'History', 'thursday': 'History', 'friday': 'History'}
 DEBUG: ADDED  History  AT  4
 DEBUG: A
@@ -435,24 +342,24 @@ DEBUG:   monday tuesday wednesday thursday friday
 6   None    None      None     None   None
 7   None    None      None     None   None
 DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    Math    Math      Math     Math    Math
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
 DEBUG: B
-DEBUG:    monday tuesday wednesday thursday  friday
-1    None    None      None     None    None
-2  Bible7  Bible7    Bible7   Bible7  Bible7
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: {7: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 3, 4, 5, 6, 7]}, 8: {'A': [6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
+DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
 DEBUG: {'monday': 'Choir', 'tuesday': 'Choir', 'wednesday': 'Choir', 'thursday': 'Choir', 'friday': 'ArtA'}
 DEBUG: ADDED  Choir  AT  6
 DEBUG: A
@@ -474,24 +381,24 @@ DEBUG:   monday tuesday wednesday thursday friday
 6   None    None      None     None   None
 7   None    None      None     None   None
 DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    Math    Math      Math     Math    Math
-4    None    None      None     None    None
-5    None    None      None     None    None
-6   Choir   Choir     Choir    Choir    None
-7    None    None      None     None    None
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6  Choir   Choir     Choir    Choir   None
+7   None    None      None     None   None
 DEBUG: B
-DEBUG:    monday tuesday wednesday thursday  friday
-1    None    None      None     None    None
-2  Bible7  Bible7    Bible7   Bible7  Bible7
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: {7: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 3, 4, 5, 6, 7]}, 8: {'A': [7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
+DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
 DEBUG: {'monday': 'Gym', 'tuesday': 'Chinese', 'wednesday': 'StudyA', 'thursday': 'Chinese', 'friday': 'Gym'}
 DEBUG: ADDED  Gym  AT  7
 DEBUG: A
@@ -513,35 +420,30 @@ DEBUG:   monday tuesday wednesday thursday friday
 6   None    None      None     None   None
 7    Gym    None      None     None    Gym
 DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    Math    Math      Math     Math    Math
-4    None    None      None     None    None
-5    None    None      None     None    None
-6   Choir   Choir     Choir    Choir    None
-7    None    None      None     None    None
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6  Choir   Choir     Choir    Choir   None
+7   None    None      None     None   None
 DEBUG: B
-DEBUG:    monday tuesday wednesday thursday  friday
-1    None    None      None     None    None
-2  Bible7  Bible7    Bible7   Bible7  Bible7
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: {7: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [1, 2, 3, 4, 5, 6, 7]}}
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
+DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [1, 2, 3, 4, 5, 6, 7]}}
 DEBUG: {'monday': 'Bible', 'tuesday': 'Bible', 'wednesday': 'Bible', 'thursday': 'Bible', 'friday': 'Bible'}
 DEBUG: room being used 201 B Hawkinson 2 monday 8 here
-DEBUG: room being used 202 B Hawkinson 2 monday 8 here
 DEBUG: room being used 201 B Hawkinson 2 tuesday 8 here
-DEBUG: room being used 202 B Hawkinson 2 tuesday 8 here
 DEBUG: room being used 201 B Hawkinson 2 wednesday 8 here
-DEBUG: room being used 202 B Hawkinson 2 wednesday 8 here
 DEBUG: room being used 201 B Hawkinson 2 thursday 8 here
-DEBUG: room being used 202 B Hawkinson 2 thursday 8 here
 DEBUG: room being used 201 B Hawkinson 2 friday 8 here
-DEBUG: room being used 202 B Hawkinson 2 friday 8 here
 DEBUG: ADDED  Bible  AT  2
 DEBUG: A
 DEBUG:     monday  tuesday wednesday thursday   friday
@@ -562,35 +464,30 @@ DEBUG:   monday tuesday wednesday thursday friday
 6   None    None      None     None   None
 7    Gym    None      None     None    Gym
 DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    Math    Math      Math     Math    Math
-4    None    None      None     None    None
-5    None    None      None     None    None
-6   Choir   Choir     Choir    Choir    None
-7    None    None      None     None    None
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6  Choir   Choir     Choir    Choir   None
+7   None    None      None     None   None
 DEBUG: B
-DEBUG:    monday tuesday wednesday thursday  friday
-1    None    None      None     None    None
-2  Bible7  Bible7    Bible7   Bible7  Bible7
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: {7: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [1, 3, 4, 5, 6, 7]}}
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
+DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [1, 3, 4, 5, 6, 7]}}
 DEBUG: {'monday': 'Lang', 'tuesday': 'Lang', 'wednesday': 'Lang', 'thursday': 'Lang', 'friday': 'Lang'}
 DEBUG: room being used 201 B Coleman 1 monday 8 here
-DEBUG: room being used 202 B Coleman 1 monday 8 here
 DEBUG: room being used 201 B Coleman 1 tuesday 8 here
-DEBUG: room being used 202 B Coleman 1 tuesday 8 here
 DEBUG: room being used 201 B Coleman 1 wednesday 8 here
-DEBUG: room being used 202 B Coleman 1 wednesday 8 here
 DEBUG: room being used 201 B Coleman 1 thursday 8 here
-DEBUG: room being used 202 B Coleman 1 thursday 8 here
 DEBUG: room being used 201 B Coleman 1 friday 8 here
-DEBUG: room being used 202 B Coleman 1 friday 8 here
 DEBUG: ADDED  Lang  AT  1
 DEBUG: A
 DEBUG:     monday  tuesday wednesday thursday   friday
@@ -611,24 +508,24 @@ DEBUG:   monday tuesday wednesday thursday friday
 6   None    None      None     None   None
 7    Gym    None      None     None    Gym
 DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    Math    Math      Math     Math    Math
-4    None    None      None     None    None
-5    None    None      None     None    None
-6   Choir   Choir     Choir    Choir    None
-7    None    None      None     None    None
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6  Choir   Choir     Choir    Choir   None
+7   None    None      None     None   None
 DEBUG: B
-DEBUG:    monday tuesday wednesday thursday  friday
-1    None    None      None     None    None
-2  Bible7  Bible7    Bible7   Bible7  Bible7
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: {7: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [3, 4, 5, 6, 7]}}
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
+DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [3, 4, 5, 6, 7]}}
 DEBUG: {'monday': 'Science', 'tuesday': 'Science', 'wednesday': 'Science', 'thursday': 'Science', 'friday': 'Science'}
 DEBUG: room being used 201 B Hanson 6 monday 8 here
 DEBUG: room being used 201 B Hanson 6 tuesday 8 here
@@ -655,24 +552,24 @@ DEBUG:     monday  tuesday wednesday thursday   friday
 6  Science  Science   Science  Science  Science
 7      Gym     None      None     None      Gym
 DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    Math    Math      Math     Math    Math
-4    None    None      None     None    None
-5    None    None      None     None    None
-6   Choir   Choir     Choir    Choir    None
-7    None    None      None     None    None
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6  Choir   Choir     Choir    Choir   None
+7   None    None      None     None   None
 DEBUG: B
-DEBUG:    monday tuesday wednesday thursday  friday
-1    None    None      None     None    None
-2  Bible7  Bible7    Bible7   Bible7  Bible7
-3    None    None      None     None    None
-4    None    None      None     None    None
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: {7: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [3, 4, 5, 7]}}
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
+DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [3, 4, 5, 7]}}
 DEBUG: {'monday': 'Math', 'tuesday': 'Math', 'wednesday': 'Math', 'thursday': 'Math', 'friday': 'Math'}
 DEBUG: ADDED  Math  AT  4
 DEBUG: A
@@ -694,24 +591,24 @@ DEBUG:     monday  tuesday wednesday thursday   friday
 6  Science  Science   Science  Science  Science
 7      Gym     None      None     None      Gym
 DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    Math    Math      Math     Math    Math
-4    None    None      None     None    None
-5    None    None      None     None    None
-6   Choir   Choir     Choir    Choir    None
-7    None    None      None     None    None
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6  Choir   Choir     Choir    Choir   None
+7   None    None      None     None   None
 DEBUG: B
-DEBUG:    monday tuesday wednesday thursday  friday
-1    None    None      None     None    None
-2  Bible7  Bible7    Bible7   Bible7  Bible7
-3    None    None      None     None    None
-4    Math    Math      Math     Math    Math
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: {7: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [3, 5, 7]}}
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
+DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [3, 5, 7]}}
 DEBUG: {'monday': 'History', 'tuesday': 'History', 'wednesday': 'History', 'thursday': 'History', 'friday': 'History'}
 DEBUG: ADDED  History  AT  3
 DEBUG: A
@@ -733,24 +630,24 @@ DEBUG:     monday  tuesday wednesday thursday   friday
 6  Science  Science   Science  Science  Science
 7      Gym     None      None     None      Gym
 DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    Math    Math      Math     Math    Math
-4    None    None      None     None    None
-5    None    None      None     None    None
-6   Choir   Choir     Choir    Choir    None
-7    None    None      None     None    None
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6  Choir   Choir     Choir    Choir   None
+7   None    None      None     None   None
 DEBUG: B
-DEBUG:    monday tuesday wednesday thursday  friday
-1    None    None      None     None    None
-2  Bible7  Bible7    Bible7   Bible7  Bible7
-3    None    None      None     None    None
-4    Math    Math      Math     Math    Math
-5    None    None      None     None    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: {7: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [5, 7]}}
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6   None    None      None     None   None
+7   None    None      None     None   None
+DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [5, 7]}}
 DEBUG: {'monday': 'Band', 'tuesday': 'Band', 'wednesday': 'Band', 'thursday': 'Band', 'friday': 'StudyB'}
 DEBUG: room being used 201 B Strand 5 friday 8 here
 DEBUG: ADDED  Band  AT  5
@@ -773,24 +670,24 @@ DEBUG:     monday  tuesday wednesday thursday   friday
 6  Science  Science   Science  Science  Science
 7      Gym     None      None     None      Gym
 DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    Math    Math      Math     Math    Math
-4    None    None      None     None    None
-5    None    None      None     None    None
-6   Choir   Choir     Choir    Choir    None
-7    None    None      None     None    None
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6  Choir   Choir     Choir    Choir   None
+7   None    None      None     None   None
 DEBUG: B
-DEBUG:    monday tuesday wednesday thursday  friday
-1    None    None      None     None    None
-2  Bible7  Bible7    Bible7   Bible7  Bible7
-3    None    None      None     None    None
-4    Math    Math      Math     Math    Math
-5    Band    Band      Band     Band    None
-6    None    None      None     None    None
-7    None    None      None     None    None
-DEBUG: {7: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [7]}}
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   Band    Band      Band     Band   None
+6   None    None      None     None   None
+7   None    None      None     None   None
+DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [7]}}
 DEBUG: {'monday': None, 'tuesday': 'Spanish', 'wednesday': 'ArtB', 'thursday': 'Spanish', 'friday': None}
 DEBUG: room being used 201 B Lutio 7 tuesday 8 here
 DEBUG: room being used 201 B Chant 7 wednesday 8 here
@@ -815,20 +712,20 @@ DEBUG:     monday  tuesday wednesday thursday   friday
 6  Science  Science   Science  Science  Science
 7      Gym  Spanish      ArtB  Spanish      Gym
 DEBUG: A
-DEBUG:    monday tuesday wednesday thursday  friday
-1  Bible7  Bible7    Bible7   Bible7  Bible7
-2    None    None      None     None    None
-3    Math    Math      Math     Math    Math
-4    None    None      None     None    None
-5    None    None      None     None    None
-6   Choir   Choir     Choir    Choir    None
-7    None    None      None     None    None
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   None    None      None     None   None
+6  Choir   Choir     Choir    Choir   None
+7   None    None      None     None   None
 DEBUG: B
-DEBUG:    monday tuesday wednesday thursday  friday
-1    None    None      None     None    None
-2  Bible7  Bible7    Bible7   Bible7  Bible7
-3    None    None      None     None    None
-4    Math    Math      Math     Math    Math
-5    Band    Band      Band     Band    None
-6    None    None      None     None    None
-7    None    None      None     None    None
+DEBUG:   monday tuesday wednesday thursday friday
+1   None    None      None     None   None
+2   None    None      None     None   None
+3   None    None      None     None   None
+4   None    None      None     None   None
+5   Band    Band      Band     Band   None
+6   None    None      None     None   None
+7   None    None      None     None   None
