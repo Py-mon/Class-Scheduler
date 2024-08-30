@@ -1,4 +1,4 @@
-Takes rooms, teachers, and courses to create a class schedule. It makes sure there are no conflicts, such as two coursees in the same room, a teacher teaching two coursees at the same time, etc. 
+Takes rooms, teachers, and courses to create a class schedule. It makes sure there are no conflicts, such as two courses in the same room, a teacher teaching two courses at the same time, etc. 
 
 ![image](https://github.com/Py-mon/Scheduler/assets/102424561/3e924f19-a2d2-461c-8d80-322dd0d738d1)
 
