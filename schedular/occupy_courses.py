@@ -26,6 +26,8 @@ def find_slot_configuration(
 
             course = courses.loc[course_name]
             open_teacher_periods = get_open_teacher_periods(course, day)
+            if course_name == "Spanish1":
+                debug(period, open_teacher_periods, course["Periods"])
             if period not in intersection(open_teacher_periods, course["Periods"]):
                 return False
 
@@ -80,6 +82,9 @@ def find_slot_configuration(
             break
     else:
         debug("COULDN'T FIND CONFIGURATION FOR")
+        debug(Occupied.teachers["Lutio"])
+        # debug(courses)
+
         # display(Occupied.grades)
         debug2()
 
@@ -131,9 +136,9 @@ def do(period_slots):
 
                 open_slots.remove(period)
 
-                debug("ADDED ", courses_to_add[0][-3], " AT ", period)
+                # debug("ADDED ", courses_to_add[0][-3], " AT ", period)
 
-                debug2()
+                # debug2()
 
 
 def fits_requirements(period, course, room_name, day, section, grade):
@@ -149,6 +154,7 @@ def fits_requirements(period, course, room_name, day, section, grade):
 
     debug(
         "room being used",
+        course.name,
         room_name,
         section,
         course["Teacher"],
@@ -170,10 +176,15 @@ def find_configuration(course, day, course_name, section, period, grade):
         if type(possible_room) in [float, numpy.float64]:  # empty
             continue
 
+        if course_name == "Spanish1":
+            debug(possible_room, course["Rooms"])
+
         if period not in rooms.loc[possible_room]["Periods"]:
+            debug(period, possible_room, rooms.loc[possible_room]["Periods"])
             continue
 
         if fits_requirements(period, course, possible_room, day, section, grade):
+
             return period, course, possible_room, day, course_name, section, grade
 
     return False

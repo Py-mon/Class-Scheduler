@@ -93,7 +93,7 @@ def precalculate_data():
         teachers["Periods"][name] = get_periods(teacher["Periods"])
 
     for name, room in rooms.iterrows():
-        rooms["Periods"][name] = get_periods(room["Periods"])
+        rooms["Periods"][name] = get_periods(room["Periods"]) # can be int or str
 
     for name, grade in grades.iterrows():
         new_sections = []

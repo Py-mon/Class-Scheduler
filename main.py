@@ -22,8 +22,9 @@ def main():
     do(period_slots)
     print(time() - start)
 
-    display(Occupied.grades[8], 8)
-    display(Occupied.grades[7], 7)
+    for x in [7,8,9]:
+        display(Occupied.grades[x], x)
+
     # display(Occupied.rooms)
     # display(Occupied.teachers)
 
