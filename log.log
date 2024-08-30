@@ -240,235 +240,99 @@ B
 6      None      None      None      None      None
 
 
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Bible', 'tuesday': 'Bible', 'wednesday': 'Bible', 'thursday': 'Bible', 'friday': 'Bible'}
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Lang', 'tuesday': 'Lang', 'wednesday': 'Lang', 'thursday': 'Lang', 'friday': 'Lang'}
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Science', 'tuesday': 'Science', 'wednesday': 'Science', 'thursday': 'Science', 'friday': 'Science'}
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [3, 4, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Math', 'tuesday': 'Math', 'wednesday': 'Math', 'thursday': 'Math', 'friday': 'Math'}
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [4, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'History', 'tuesday': 'History', 'wednesday': 'History', 'thursday': 'History', 'friday': 'History'}
+DEBUG: put Bible in 201 1
+DEBUG: put Lang in 201 2
+DEBUG: 3 Science teacher not available
+DEBUG: 4 Science not in morning/afternoon
+DEBUG: put Science in 201 5
+DEBUG: put Math in 206 3
+DEBUG: put History in 201 4
 DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
 DEBUG: {'monday': 'Choir', 'tuesday': 'Choir', 'wednesday': 'Choir', 'thursday': 'Choir', 'friday': 'ArtA'}
+DEBUG: ADDED  Choir  AT  6
 DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
 DEBUG: {'monday': 'Gym', 'tuesday': 'Chinese', 'wednesday': 'StudyA', 'thursday': 'Chinese', 'friday': 'Gym'}
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [1, 2, 3, 4, 5, 6, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Bible', 'tuesday': 'Bible', 'wednesday': 'Bible', 'thursday': 'Bible', 'friday': 'Bible'}
-DEBUG: room being used Bible 201 B Hawkinson 2 monday 8 here
-DEBUG: room being used Bible 201 B Hawkinson 2 tuesday 8 here
-DEBUG: room being used Bible 201 B Hawkinson 2 wednesday 8 here
-DEBUG: room being used Bible 201 B Hawkinson 2 thursday 8 here
-DEBUG: room being used Bible 201 B Hawkinson 2 friday 8 here
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [1, 3, 4, 5, 6, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Lang', 'tuesday': 'Lang', 'wednesday': 'Lang', 'thursday': 'Lang', 'friday': 'Lang'}
-DEBUG: room being used Lang 201 B Coleman 1 monday 8 here
-DEBUG: room being used Lang 201 B Coleman 1 tuesday 8 here
-DEBUG: room being used Lang 201 B Coleman 1 wednesday 8 here
-DEBUG: room being used Lang 201 B Coleman 1 thursday 8 here
-DEBUG: room being used Lang 201 B Coleman 1 friday 8 here
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [3, 4, 5, 6, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Science', 'tuesday': 'Science', 'wednesday': 'Science', 'thursday': 'Science', 'friday': 'Science'}
-DEBUG: room being used Science 201 B Hanson 6 monday 8 here
-DEBUG: room being used Science 201 B Hanson 6 tuesday 8 here
-DEBUG: room being used Science 201 B Hanson 6 wednesday 8 here
-DEBUG: room being used Science 201 B Hanson 6 thursday 8 here
-DEBUG: room being used Science 201 B Hanson 6 friday 8 here
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [3, 4, 5, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Math', 'tuesday': 'Math', 'wednesday': 'Math', 'thursday': 'Math', 'friday': 'Math'}
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [3, 5, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'History', 'tuesday': 'History', 'wednesday': 'History', 'thursday': 'History', 'friday': 'History'}
+DEBUG: ADDED  Gym  AT  7
+DEBUG: room 201 being used at: 1 monday for
+DEBUG: 1 Bible teacher not available
+DEBUG: room 201 being used at: 2 monday for
+DEBUG: put Bible in 202 2
+DEBUG: room 201 being used at: 1 monday for
+DEBUG: put Lang in 202 1
+DEBUG: 3 Science teacher not available
+DEBUG: room 201 being used at: 4 monday for
+DEBUG: 4 Science not in morning/afternoon
+DEBUG: room 201 being used at: 5 monday for
+DEBUG: 5 Science teacher not available
+DEBUG: room 201 being used at: 6 monday for
+DEBUG: put Science in 202 6
+DEBUG: room 206 being used at: 3 monday for
+DEBUG: put Math in 206 4
+DEBUG: put History in 201 3
 DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [5, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
 DEBUG: {'monday': 'Band', 'tuesday': 'Band', 'wednesday': 'Band', 'thursday': 'Band', 'friday': 'StudyB'}
-DEBUG: room being used StudyB 201 B Strand 5 friday 8 here
+DEBUG: room 201 being used at: 5 friday for StudyB
+DEBUG: ADDED  Band  AT  5
 DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
 DEBUG: {'monday': None, 'tuesday': 'Spanish', 'wednesday': 'ArtB', 'thursday': 'Spanish', 'friday': None}
-DEBUG: room being used Spanish 201 B Lutio 7 tuesday 8 here
-DEBUG: room being used ArtB 201 B Chant 7 wednesday 8 here
-DEBUG: room being used Spanish 201 B Lutio 7 thursday 8 here
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': []}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Phys Sci', 'tuesday': 'Phys Sci', 'wednesday': 'Phys Sci', 'thursday': 'Phys Sci', 'friday': 'Phys Sci'}
-DEBUG: room being used Phys Sci 201 A Diamond 1 monday 9 here
-DEBUG: room being used Phys Sci 202 A Diamond 1 monday 9 here
-DEBUG: room being used Phys Sci 201 A Diamond 1 tuesday 9 here
-DEBUG: room being used Phys Sci 202 A Diamond 1 tuesday 9 here
-DEBUG: room being used Phys Sci 201 A Diamond 1 wednesday 9 here
-DEBUG: room being used Phys Sci 202 A Diamond 1 wednesday 9 here
-DEBUG: room being used Phys Sci 201 A Diamond 1 thursday 9 here
-DEBUG: room being used Phys Sci 202 A Diamond 1 thursday 9 here
-DEBUG: room being used Phys Sci 201 A Diamond 1 friday 9 here
-DEBUG: room being used Phys Sci 202 A Diamond 1 friday 9 here
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': []}, 9: {'A': [2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Lang9', 'tuesday': 'Lang9', 'wednesday': 'Lang9', 'thursday': 'Lang9', 'friday': 'Lang9'}
-DEBUG: room being used Lang9 201 A Hawthorne 2 monday 9 here
-DEBUG: room being used Lang9 202 A Hawthorne 2 monday 9 here
-DEBUG: room being used Lang9 201 A Hawthorne 2 tuesday 9 here
-DEBUG: room being used Lang9 202 A Hawthorne 2 tuesday 9 here
-DEBUG: room being used Lang9 201 A Hawthorne 2 wednesday 9 here
-DEBUG: room being used Lang9 202 A Hawthorne 2 wednesday 9 here
-DEBUG: room being used Lang9 201 A Hawthorne 2 thursday 9 here
-DEBUG: room being used Lang9 202 A Hawthorne 2 thursday 9 here
-DEBUG: room being used Lang9 201 A Hawthorne 2 friday 9 here
-DEBUG: room being used Lang9 202 A Hawthorne 2 friday 9 here
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': []}, 9: {'A': [3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'ALG 2', 'tuesday': 'ALG 2', 'wednesday': 'ALG 2', 'thursday': 'ALG 2', 'friday': 'ALG 2'}
-DEBUG: room being used ALG 2 201 A Braaten 3 monday 9 here
-DEBUG: room being used ALG 2 201 A Braaten 3 tuesday 9 here
-DEBUG: room being used ALG 2 201 A Braaten 3 wednesday 9 here
-DEBUG: room being used ALG 2 201 A Braaten 3 thursday 9 here
-DEBUG: room being used ALG 2 201 A Braaten 3 friday 9 here
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': []}, 9: {'A': [4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Spanish1', 'tuesday': 'Spanish1', 'wednesday': 'Spanish1', 'thursday': 'Spanish1', 'friday': 'Spanish1'}
-DEBUG: 4 [1, 2, 3, 4, 5, 6, 7] {5, 6, 7}
-DEBUG: 5 [1, 2, 3, 4, 5, 6, 7] {5, 6, 7}
-DEBUG: 201 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 201 A Lutio 5 monday 9 here
-DEBUG: 202 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: 5 [1, 2, 3, 4, 5, 6] {5, 6, 7}
-DEBUG: 201 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 201 A Lutio 5 tuesday 9 here
-DEBUG: 202 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: 5 [1, 2, 3, 4, 5, 6, 7] {5, 6, 7}
-DEBUG: 201 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 201 A Lutio 5 wednesday 9 here
-DEBUG: 202 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: 5 [1, 2, 3, 4, 5, 6] {5, 6, 7}
-DEBUG: 201 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 201 A Lutio 5 thursday 9 here
-DEBUG: 202 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: 5 [1, 2, 3, 4, 5, 6, 7] {5, 6, 7}
-DEBUG: 201 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 201 A Lutio 5 friday 9 here
-DEBUG: 202 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 202 A Lutio 5 friday 9 here
-DEBUG: 203 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': []}, 9: {'A': [4, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'US Hist', 'tuesday': 'US Hist', 'wednesday': 'US Hist', 'thursday': 'US Hist', 'friday': 'US Hist'}
-DEBUG: room being used US Hist 201 A Hendrickson 4 monday 9 here
-DEBUG: room being used US Hist 201 A Hendrickson 4 tuesday 9 here
-DEBUG: room being used US Hist 201 A Hendrickson 4 wednesday 9 here
-DEBUG: room being used US Hist 201 A Hendrickson 4 thursday 9 here
-DEBUG: room being used US Hist 201 A Hendrickson 4 friday 9 here
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': []}, 9: {'A': [6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'BandHS', 'tuesday': 'BandHS', 'wednesday': 'BandHS', 'thursday': 'BandHS', 'friday': 'BandHS'}
-DEBUG: room being used BandHS 201 A Curtis 6 monday 9 here
-DEBUG: room being used BandHS 202 A Curtis 6 monday 9 here
-DEBUG: room being used BandHS 201 A Curtis 6 tuesday 9 here
-DEBUG: room being used BandHS 202 A Curtis 6 tuesday 9 here
-DEBUG: room being used BandHS 201 A Curtis 6 wednesday 9 here
-DEBUG: room being used BandHS 202 A Curtis 6 wednesday 9 here
-DEBUG: room being used BandHS 201 A Curtis 6 thursday 9 here
-DEBUG: room being used BandHS 202 A Curtis 6 thursday 9 here
-DEBUG: room being used BandHS 201 A Curtis 6 friday 9 here
-DEBUG: room being used BandHS 202 A Curtis 6 friday 9 here
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': []}, 9: {'A': [7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Phys Sci', 'tuesday': 'Phys Sci', 'wednesday': 'Phys Sci', 'thursday': 'Phys Sci', 'friday': 'Phys Sci'}
-DEBUG: room being used Phys Sci 201 B Diamond 2 monday 9 here
-DEBUG: room being used Phys Sci 202 B Diamond 2 monday 9 here
-DEBUG: room being used Phys Sci 203 B Diamond 2 monday 9 here
-DEBUG: room being used Phys Sci 201 B Diamond 2 tuesday 9 here
-DEBUG: room being used Phys Sci 202 B Diamond 2 tuesday 9 here
-DEBUG: room being used Phys Sci 203 B Diamond 2 tuesday 9 here
-DEBUG: room being used Phys Sci 201 B Diamond 2 wednesday 9 here
-DEBUG: room being used Phys Sci 202 B Diamond 2 wednesday 9 here
-DEBUG: room being used Phys Sci 203 B Diamond 2 wednesday 9 here
-DEBUG: room being used Phys Sci 201 B Diamond 2 thursday 9 here
-DEBUG: room being used Phys Sci 202 B Diamond 2 thursday 9 here
-DEBUG: room being used Phys Sci 203 B Diamond 2 thursday 9 here
-DEBUG: room being used Phys Sci 201 B Diamond 2 friday 9 here
-DEBUG: room being used Phys Sci 202 B Diamond 2 friday 9 here
-DEBUG: room being used Phys Sci 203 B Diamond 2 friday 9 here
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': []}, 9: {'A': [7], 'B': [1, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Lang9', 'tuesday': 'Lang9', 'wednesday': 'Lang9', 'thursday': 'Lang9', 'friday': 'Lang9'}
-DEBUG: room being used Lang9 201 B Hawthorne 1 monday 9 here
-DEBUG: room being used Lang9 202 B Hawthorne 1 monday 9 here
-DEBUG: room being used Lang9 203 B Hawthorne 1 monday 9 here
-DEBUG: room being used Lang9 201 B Hawthorne 1 tuesday 9 here
-DEBUG: room being used Lang9 202 B Hawthorne 1 tuesday 9 here
-DEBUG: room being used Lang9 203 B Hawthorne 1 tuesday 9 here
-DEBUG: room being used Lang9 201 B Hawthorne 1 wednesday 9 here
-DEBUG: room being used Lang9 202 B Hawthorne 1 wednesday 9 here
-DEBUG: room being used Lang9 203 B Hawthorne 1 wednesday 9 here
-DEBUG: room being used Lang9 201 B Hawthorne 1 thursday 9 here
-DEBUG: room being used Lang9 202 B Hawthorne 1 thursday 9 here
-DEBUG: room being used Lang9 203 B Hawthorne 1 thursday 9 here
-DEBUG: room being used Lang9 201 B Hawthorne 1 friday 9 here
-DEBUG: room being used Lang9 202 B Hawthorne 1 friday 9 here
-DEBUG: room being used Lang9 203 B Hawthorne 1 friday 9 here
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': []}, 9: {'A': [7], 'B': [3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'ALG 2', 'tuesday': 'ALG 2', 'wednesday': 'ALG 2', 'thursday': 'ALG 2', 'friday': 'ALG 2'}
-DEBUG: room being used ALG 2 201 B Braaten 4 monday 9 here
-DEBUG: room being used ALG 2 202 B Braaten 4 monday 9 here
-DEBUG: room being used ALG 2 201 B Braaten 4 tuesday 9 here
-DEBUG: room being used ALG 2 202 B Braaten 4 tuesday 9 here
-DEBUG: room being used ALG 2 201 B Braaten 4 wednesday 9 here
-DEBUG: room being used ALG 2 202 B Braaten 4 wednesday 9 here
-DEBUG: room being used ALG 2 201 B Braaten 4 thursday 9 here
-DEBUG: room being used ALG 2 202 B Braaten 4 thursday 9 here
-DEBUG: room being used ALG 2 201 B Braaten 4 friday 9 here
-DEBUG: room being used ALG 2 202 B Braaten 4 friday 9 here
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': []}, 9: {'A': [7], 'B': [3, 5, 6, 7]}}
-DEBUG: {'monday': 'Spanish1', 'tuesday': 'Spanish1', 'wednesday': 'Spanish1', 'thursday': 'Spanish1', 'friday': 'Spanish1'}
-DEBUG: 3 [1, 2, 3, 4, 6, 7] {5, 6, 7}
-DEBUG: 5 [1, 2, 3, 4, 6, 7] {5, 6, 7}
-DEBUG: 6 [1, 2, 3, 4, 6, 7] {5, 6, 7}
-DEBUG: 201 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 201 B Lutio 6 monday 9 here
-DEBUG: 202 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 202 B Lutio 6 monday 9 here
-DEBUG: 203 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 203 B Lutio 6 monday 9 here
-DEBUG: 205 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: 6 [1, 2, 3, 4, 6] {5, 6, 7}
-DEBUG: 201 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 201 B Lutio 6 tuesday 9 here
-DEBUG: 202 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 202 B Lutio 6 tuesday 9 here
-DEBUG: 203 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 203 B Lutio 6 tuesday 9 here
-DEBUG: 205 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: 6 [1, 2, 3, 4, 6, 7] {5, 6, 7}
-DEBUG: 201 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 201 B Lutio 6 wednesday 9 here
-DEBUG: 202 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 202 B Lutio 6 wednesday 9 here
-DEBUG: 203 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 203 B Lutio 6 wednesday 9 here
-DEBUG: 205 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: 6 [1, 2, 3, 4, 6] {5, 6, 7}
-DEBUG: 201 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 201 B Lutio 6 thursday 9 here
-DEBUG: 202 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 202 B Lutio 6 thursday 9 here
-DEBUG: 203 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 203 B Lutio 6 thursday 9 here
-DEBUG: 205 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: 6 [1, 2, 3, 4, 6, 7] {5, 6, 7}
-DEBUG: 201 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 201 B Lutio 6 friday 9 here
-DEBUG: 202 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 202 B Lutio 6 friday 9 here
-DEBUG: 203 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: room being used Spanish1 203 B Lutio 6 friday 9 here
-DEBUG: 205 (201, 202, 203, 205, 204, 206, 283, 302, 303, 304, 112, 305, 264, 313)
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': []}, 9: {'A': [7], 'B': [3, 5, 7]}}
-DEBUG: {'monday': 'US Hist', 'tuesday': 'US Hist', 'wednesday': 'US Hist', 'thursday': 'US Hist', 'friday': 'US Hist'}
-DEBUG: room being used US Hist 201 B Hendrickson 3 monday 9 here
-DEBUG: room being used US Hist 202 B Hendrickson 3 monday 9 here
-DEBUG: room being used US Hist 201 B Hendrickson 3 tuesday 9 here
-DEBUG: room being used US Hist 202 B Hendrickson 3 tuesday 9 here
-DEBUG: room being used US Hist 201 B Hendrickson 3 wednesday 9 here
-DEBUG: room being used US Hist 202 B Hendrickson 3 wednesday 9 here
-DEBUG: room being used US Hist 201 B Hendrickson 3 thursday 9 here
-DEBUG: room being used US Hist 202 B Hendrickson 3 thursday 9 here
-DEBUG: room being used US Hist 201 B Hendrickson 3 friday 9 here
-DEBUG: room being used US Hist 202 B Hendrickson 3 friday 9 here
-DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': []}, 9: {'A': [7], 'B': [5, 7]}}
-DEBUG: {'monday': 'BandHS', 'tuesday': 'BandHS', 'wednesday': 'BandHS', 'thursday': 'BandHS', 'friday': 'BandHS'}
-DEBUG: room being used BandHS 201 B Curtis 7 tuesday 9 here
-DEBUG: room being used BandHS 202 B Curtis 7 tuesday 9 here
-DEBUG: room being used BandHS 201 B Curtis 7 wednesday 9 here
-DEBUG: room being used BandHS 202 B Curtis 7 wednesday 9 here
-DEBUG: room being used BandHS 201 B Curtis 7 thursday 9 here
-DEBUG: room being used BandHS 202 B Curtis 7 thursday 9 here
+DEBUG: room 201 being used at: 7 tuesday for Spanish
+DEBUG: room 201 being used at: 7 wednesday for ArtB
+DEBUG: room 201 being used at: 7 thursday for Spanish
+DEBUG: ADDED  Spanish  AT  7
+DEBUG: room 201 being used at: 1 monday for
+DEBUG: room 202 being used at: 1 monday for
+DEBUG: put Phys Sci in 203 1
+DEBUG: room 201 being used at: 2 monday for
+DEBUG: room 202 being used at: 2 monday for
+DEBUG: put Lang9 in 203 2
+DEBUG: room 201 being used at: 3 monday for
+DEBUG: put ALG 2 in 202 3
+DEBUG: room 201 being used at: 4 monday for
+DEBUG: 4 Spanish1 not in morning/afternoon
+DEBUG: room 201 being used at: 5 monday for
+DEBUG: room 202 being used at: 5 friday for
+DEBUG: put Spanish1 in 203 5
+DEBUG: room 201 being used at: 4 monday for
+DEBUG: put US Hist in 202 4
+DEBUG: room 201 being used at: 6 monday for
+DEBUG: room 202 being used at: 6 monday for
+DEBUG: put BandHS in 203 6
+DEBUG: room 201 being used at: 1 monday for
+DEBUG: room 202 being used at: 1 monday for
+DEBUG: room 203 being used at: 1 monday for
+DEBUG: 1 Phys Sci teacher not available
+DEBUG: room 201 being used at: 2 monday for
+DEBUG: room 202 being used at: 2 monday for
+DEBUG: room 203 being used at: 2 monday for
+DEBUG: put Phys Sci in 205 2
+DEBUG: room 201 being used at: 1 monday for
+DEBUG: room 202 being used at: 1 monday for
+DEBUG: room 203 being used at: 1 monday for
+DEBUG: put Lang9 in 205 1
+DEBUG: room 201 being used at: 3 monday for
+DEBUG: room 202 being used at: 3 monday for
+DEBUG: 3 ALG 2 teacher not available
+DEBUG: room 201 being used at: 4 monday for
+DEBUG: room 202 being used at: 4 monday for
+DEBUG: put ALG 2 in 203 4
+DEBUG: room 201 being used at: 3 monday for
+DEBUG: room 202 being used at: 3 monday for
+DEBUG: 3 Spanish1 not in morning/afternoon
+DEBUG: room 201 being used at: 5 monday for
+DEBUG: room 202 being used at: 5 friday for
+DEBUG: room 203 being used at: 5 monday for
+DEBUG: 5 Spanish1 teacher not available
+DEBUG: room 201 being used at: 6 monday for
+DEBUG: room 202 being used at: 6 monday for
+DEBUG: room 203 being used at: 6 monday for
+DEBUG: put Spanish1 in 205 6
+DEBUG: room 201 being used at: 3 monday for
+DEBUG: room 202 being used at: 3 monday for
+DEBUG: put US Hist in 203 3
+DEBUG: room 201 being used at: 5 monday for
+DEBUG: room 202 being used at: 5 friday for
+DEBUG: room 203 being used at: 5 monday for
+DEBUG: 5 BandHS teacher not available
+DEBUG: room 201 being used at: 7 tuesday for
+DEBUG: room 202 being used at: 7 tuesday for
+DEBUG: put BandHS in 203 7
