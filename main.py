@@ -1,6 +1,6 @@
 from time import time
 
-from schedular.data_convert import precalculate_data
+from schedular.data_convert import convert_data
 from schedular.display import display
 from schedular.occupy_courses import do
 from schedular.occupy_tables import Occupied, generate_occupy_tables
@@ -8,7 +8,7 @@ from schedular.period_slots import calculate_period_slots
 
 
 def main():
-    precalculate_data()
+    convert_data()
 
     period_slots = calculate_period_slots()
     p = [
@@ -22,7 +22,7 @@ def main():
     do(period_slots)
     print(time() - start)
 
-    for x in [7,8,9]:
+    for x in [7, 8, 9]:
         display(Occupied.grades[x], x)
 
     # display(Occupied.rooms)

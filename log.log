@@ -78,74 +78,74 @@ ALG 2         NaN       Any
 Spanish1      NaN       Any  
 US Hist       NaN       Any  
 BandHS        NaN       Any  
-DEBUG:               Teacher                                            Days   Type  \
-Name                                                                           
-Bible       Hawkinson  (monday, tuesday, wednesday, thursday, friday)   Core   
-ArtA            Chant                                        [friday]  Other   
-ArtB            Chant                                     [wednesday]  Other   
-Gym            Peters                                [monday, friday]  Other   
-Chinese            Mi                             [tuesday, thursday]  Other   
-Spanish         Lutio                             [tuesday, thursday]  Other   
-Lang          Coleman  (monday, tuesday, wednesday, thursday, friday)   Core   
-Science        Hanson  (monday, tuesday, wednesday, thursday, friday)  Other   
-Math           Strand  (monday, tuesday, wednesday, thursday, friday)   Core   
-History      Stockman  (monday, tuesday, wednesday, thursday, friday)   Core   
-Choir             Cho          [monday, tuesday, wednesday, thursday]  Other   
-Band           Curtis          [monday, tuesday, wednesday, thursday]  Other   
-StudyA         Strand                                     [wednesday]  Other   
-StudyB         Strand                                        [friday]  Other   
-Phys Sci      Diamond  (monday, tuesday, wednesday, thursday, friday)   Core   
-Lang9       Hawthorne  (monday, tuesday, wednesday, thursday, friday)   Core   
-ALG 2         Braaten  (monday, tuesday, wednesday, thursday, friday)   Core   
-Spanish1        Lutio  (monday, tuesday, wednesday, thursday, friday)  Other   
-US Hist   Hendrickson  (monday, tuesday, wednesday, thursday, friday)   Core   
-BandHS         Curtis  (monday, tuesday, wednesday, thursday, friday)  Other   
+DEBUG:                Teacher                                            Days   Type  \
+Name                                                                            
+Bible8       Hawkinson  (monday, tuesday, wednesday, thursday, friday)   Core   
+ArtA8            Chant                                        [friday]  Other   
+ArtB8            Chant                                     [wednesday]  Other   
+Gym8            Peters                                [monday, friday]  Other   
+Chinese8            Mi                             [tuesday, thursday]  Other   
+Spanish8         Lutio                             [tuesday, thursday]  Other   
+Lang8          Coleman  (monday, tuesday, wednesday, thursday, friday)   Core   
+Science8        Hanson  (monday, tuesday, wednesday, thursday, friday)  Other   
+Math8           Strand  (monday, tuesday, wednesday, thursday, friday)   Core   
+History8      Stockman  (monday, tuesday, wednesday, thursday, friday)   Core   
+Choir8             Cho          [monday, tuesday, wednesday, thursday]  Other   
+Band8           Curtis          [monday, tuesday, wednesday, thursday]  Other   
+StudyA8         Strand                                     [wednesday]  Other   
+StudyB8         Strand                                        [friday]  Other   
+Phys Sci9      Diamond  (monday, tuesday, wednesday, thursday, friday)   Core   
+Lang99       Hawthorne  (monday, tuesday, wednesday, thursday, friday)   Core   
+ALG 29         Braaten  (monday, tuesday, wednesday, thursday, friday)   Core   
+Spanish19        Lutio  (monday, tuesday, wednesday, thursday, friday)  Other   
+US Hist9   Hendrickson  (monday, tuesday, wednesday, thursday, friday)   Core   
+BandHS9         Curtis  (monday, tuesday, wednesday, thursday, friday)  Other   
 
-          Grades Sections Room Type       Periods  \
-Name                                                
-Bible        [8]   [A, B]       Any  {1, 2, 3, 4}   
-ArtA         [8]      [A]       Any     {5, 6, 7}   
-ArtB         [8]      [B]       Any     {5, 6, 7}   
-Gym          [8]   [A, B]       Gym     {5, 6, 7}   
-Chinese      [8]      [A]       Any     {5, 6, 7}   
-Spanish      [8]      [B]       Any     {5, 6, 7}   
-Lang         [8]   [A, B]       Any  {1, 2, 3, 4}   
-Science      [8]   [A, B]       Any     {5, 6, 7}   
-Math         [8]   [A, B]       206  {1, 2, 3, 4}   
-History      [8]   [A, B]       Any  {1, 2, 3, 4}   
-Choir     [8, 7]      [A]       Any     {5, 6, 7}   
-Band      [8, 7]      [B]      Band     {5, 6, 7}   
-StudyA       [8]      [A]       Any     {5, 6, 7}   
-StudyB       [8]      [B]       Any     {5, 6, 7}   
-Phys Sci     [9]   [A, B]       Any  {1, 2, 3, 4}   
-Lang9        [9]   [A, B]       Any  {1, 2, 3, 4}   
-ALG 2        [9]   [A, B]       Any  {1, 2, 3, 4}   
-Spanish1     [9]   [A, B]       Any     {5, 6, 7}   
-US Hist      [9]   [A, B]       Any  {1, 2, 3, 4}   
-BandHS       [9]   [A, B]       Any     {5, 6, 7}   
+           Grades Sections Room Type       Periods  \
+Name                                                 
+Bible8        [8]   [A, B]       Any  {1, 2, 3, 4}   
+ArtA8         [8]      [A]       Any     {5, 6, 7}   
+ArtB8         [8]      [B]       Any     {5, 6, 7}   
+Gym8          [8]   [A, B]       Gym     {5, 6, 7}   
+Chinese8      [8]      [A]       Any     {5, 6, 7}   
+Spanish8      [8]      [B]       Any     {5, 6, 7}   
+Lang8         [8]   [A, B]       Any  {1, 2, 3, 4}   
+Science8      [8]   [A, B]       Any     {5, 6, 7}   
+Math8         [8]   [A, B]       206  {1, 2, 3, 4}   
+History8      [8]   [A, B]       Any  {1, 2, 3, 4}   
+Choir8     [8, 7]      [A]       Any     {5, 6, 7}   
+Band8      [8, 7]      [B]      Band     {5, 6, 7}   
+StudyA8       [8]      [A]       Any     {5, 6, 7}   
+StudyB8       [8]      [B]       Any     {5, 6, 7}   
+Phys Sci9     [9]   [A, B]       Any  {1, 2, 3, 4}   
+Lang99        [9]   [A, B]       Any  {1, 2, 3, 4}   
+ALG 29        [9]   [A, B]       Any  {1, 2, 3, 4}   
+Spanish19     [9]   [A, B]       Any     {5, 6, 7}   
+US Hist9      [9]   [A, B]       Any  {1, 2, 3, 4}   
+BandHS9       [9]   [A, B]       Any     {5, 6, 7}   
 
-                                                      Rooms  Same  
-Name                                                               
-Bible     (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-ArtA      (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-ArtB      (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-Gym                                                  (Gym,)  True  
-Chinese   (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-Spanish   (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-Lang      (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-Science   (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-Math                                                 (206,)  None  
-History   (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-Choir     (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-Band                                                (Band,)  None  
-StudyA    (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-StudyB    (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-Phys Sci  (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-Lang9     (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-ALG 2     (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-Spanish1  (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-US Hist   (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
-BandHS    (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None                       Periods  Type
+                                                       Rooms  Same  
+Name                                                                
+Bible8     (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+ArtA8      (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+ArtB8      (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+Gym8                                                  (Gym,)  True  
+Chinese8   (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+Spanish8   (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+Lang8      (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+Science8   (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+Math8                                                 (206,)  None  
+History8   (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+Choir8     (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+Band8                                                (Band,)  None  
+StudyA8    (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+StudyB8    (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+Phys Sci9  (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+Lang99     (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+ALG 29     (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+Spanish19  (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+US Hist9   (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None  
+BandHS9    (201, 202, 203, 205, 204, 206, 283, 302, 303, ...  None                       Periods  Type
 Name                             
 201   [1, 2, 3, 4, 5, 6, 7]   Any
 202   [1, 2, 3, 4, 5, 6, 7]   Any
@@ -200,139 +200,139 @@ B
 6   None    None      None     None   None
 
 A
-    monday  tuesday wednesday thursday   friday
-0    Bible    Bible     Bible    Bible    Bible
-1     Lang     Lang      Lang     Lang     Lang
-2  Science  Science   Science  Science  Science
-3     Math     Math      Math     Math     Math
-4  History  History   History  History  History
-5    Choir    Choir     Choir    Choir     ArtA
-6      Gym  Chinese    StudyA  Chinese      Gym
+     monday   tuesday wednesday  thursday    friday
+0    Bible8    Bible8    Bible8    Bible8    Bible8
+1     Lang8     Lang8     Lang8     Lang8     Lang8
+2  Science8  Science8  Science8  Science8  Science8
+3     Math8     Math8     Math8     Math8     Math8
+4  History8  History8  History8  History8  History8
+5    Choir8    Choir8    Choir8    Choir8     ArtA8
+6      Gym8  Chinese8   StudyA8  Chinese8      Gym8
 
 B
-    monday  tuesday wednesday thursday   friday
-0    Bible    Bible     Bible    Bible    Bible
-1     Lang     Lang      Lang     Lang     Lang
-2  Science  Science   Science  Science  Science
-3     Math     Math      Math     Math     Math
-4  History  History   History  History  History
-5     Band     Band      Band     Band   StudyB
-6     None  Spanish      ArtB  Spanish     None
+     monday   tuesday wednesday  thursday    friday
+0    Bible8    Bible8    Bible8    Bible8    Bible8
+1     Lang8     Lang8     Lang8     Lang8     Lang8
+2  Science8  Science8  Science8  Science8  Science8
+3     Math8     Math8     Math8     Math8     Math8
+4  History8  History8  History8  History8  History8
+5     Band8     Band8     Band8     Band8   StudyB8
+6      None  Spanish8     ArtB8  Spanish8      None
 
 A
-     monday   tuesday wednesday  thursday    friday
-0  Phys Sci  Phys Sci  Phys Sci  Phys Sci  Phys Sci
-1     Lang9     Lang9     Lang9     Lang9     Lang9
-2     ALG 2     ALG 2     ALG 2     ALG 2     ALG 2
-3  Spanish1  Spanish1  Spanish1  Spanish1  Spanish1
-4   US Hist   US Hist   US Hist   US Hist   US Hist
-5    BandHS    BandHS    BandHS    BandHS    BandHS
-6      None      None      None      None      None
+      monday    tuesday  wednesday   thursday     friday
+0  Phys Sci9  Phys Sci9  Phys Sci9  Phys Sci9  Phys Sci9
+1     Lang99     Lang99     Lang99     Lang99     Lang99
+2     ALG 29     ALG 29     ALG 29     ALG 29     ALG 29
+3  Spanish19  Spanish19  Spanish19  Spanish19  Spanish19
+4   US Hist9   US Hist9   US Hist9   US Hist9   US Hist9
+5    BandHS9    BandHS9    BandHS9    BandHS9    BandHS9
+6       None       None       None       None       None
 
 B
-     monday   tuesday wednesday  thursday    friday
-0  Phys Sci  Phys Sci  Phys Sci  Phys Sci  Phys Sci
-1     Lang9     Lang9     Lang9     Lang9     Lang9
-2     ALG 2     ALG 2     ALG 2     ALG 2     ALG 2
-3  Spanish1  Spanish1  Spanish1  Spanish1  Spanish1
-4   US Hist   US Hist   US Hist   US Hist   US Hist
-5    BandHS    BandHS    BandHS    BandHS    BandHS
-6      None      None      None      None      None
+      monday    tuesday  wednesday   thursday     friday
+0  Phys Sci9  Phys Sci9  Phys Sci9  Phys Sci9  Phys Sci9
+1     Lang99     Lang99     Lang99     Lang99     Lang99
+2     ALG 29     ALG 29     ALG 29     ALG 29     ALG 29
+3  Spanish19  Spanish19  Spanish19  Spanish19  Spanish19
+4   US Hist9   US Hist9   US Hist9   US Hist9   US Hist9
+5    BandHS9    BandHS9    BandHS9    BandHS9    BandHS9
+6       None       None       None       None       None
 
 
-DEBUG: put Bible in 201 1
-DEBUG: put Lang in 201 2
-DEBUG: 3 Science teacher not available
-DEBUG: 4 Science not in morning/afternoon
-DEBUG: put Science in 201 5
-DEBUG: put Math in 206 3
-DEBUG: put History in 201 4
+DEBUG: put Bible8 in 201 1
+DEBUG: put Lang8 in 201 2
+DEBUG: 3 Science8 teacher not available
+DEBUG: 4 Science8 not in morning/afternoon
+DEBUG: put Science8 in 201 5
+DEBUG: put Math8 in 206 3
+DEBUG: put History8 in 201 4
 DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Choir', 'tuesday': 'Choir', 'wednesday': 'Choir', 'thursday': 'Choir', 'friday': 'ArtA'}
-DEBUG: ADDED  Choir  AT  6
+DEBUG: {'monday': 'Choir8', 'tuesday': 'Choir8', 'wednesday': 'Choir8', 'thursday': 'Choir8', 'friday': 'ArtA8'}
+DEBUG: ADDED  Choir8  AT  6
 DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Gym', 'tuesday': 'Chinese', 'wednesday': 'StudyA', 'thursday': 'Chinese', 'friday': 'Gym'}
-DEBUG: ADDED  Gym  AT  7
+DEBUG: {'monday': 'Gym8', 'tuesday': 'Chinese8', 'wednesday': 'StudyA8', 'thursday': 'Chinese8', 'friday': 'Gym8'}
+DEBUG: ADDED  Gym8  AT  7
 DEBUG: room 201 being used at: 1 monday for
-DEBUG: 1 Bible teacher not available
+DEBUG: 1 Bible8 teacher not available
 DEBUG: room 201 being used at: 2 monday for
-DEBUG: put Bible in 202 2
+DEBUG: put Bible8 in 202 2
 DEBUG: room 201 being used at: 1 monday for
-DEBUG: put Lang in 202 1
-DEBUG: 3 Science teacher not available
+DEBUG: put Lang8 in 202 1
+DEBUG: 3 Science8 teacher not available
 DEBUG: room 201 being used at: 4 monday for
-DEBUG: 4 Science not in morning/afternoon
+DEBUG: 4 Science8 not in morning/afternoon
 DEBUG: room 201 being used at: 5 monday for
-DEBUG: 5 Science teacher not available
+DEBUG: 5 Science8 teacher not available
 DEBUG: room 201 being used at: 6 monday for
-DEBUG: put Science in 202 6
+DEBUG: put Science8 in 202 6
 DEBUG: room 206 being used at: 3 monday for
-DEBUG: put Math in 206 4
-DEBUG: put History in 201 3
+DEBUG: put Math8 in 206 4
+DEBUG: put History8 in 201 3
 DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [5, 7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': 'Band', 'tuesday': 'Band', 'wednesday': 'Band', 'thursday': 'Band', 'friday': 'StudyB'}
-DEBUG: room 201 being used at: 5 friday for StudyB
-DEBUG: ADDED  Band  AT  5
+DEBUG: {'monday': 'Band8', 'tuesday': 'Band8', 'wednesday': 'Band8', 'thursday': 'Band8', 'friday': 'StudyB8'}
+DEBUG: room 201 being used at: 5 friday for StudyB8
+DEBUG: ADDED  Band8  AT  5
 DEBUG: {7: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}, 8: {'A': [], 'B': [7]}, 9: {'A': [1, 2, 3, 4, 5, 6, 7], 'B': [1, 2, 3, 4, 5, 6, 7]}}
-DEBUG: {'monday': None, 'tuesday': 'Spanish', 'wednesday': 'ArtB', 'thursday': 'Spanish', 'friday': None}
-DEBUG: room 201 being used at: 7 tuesday for Spanish
-DEBUG: room 201 being used at: 7 wednesday for ArtB
-DEBUG: room 201 being used at: 7 thursday for Spanish
-DEBUG: ADDED  Spanish  AT  7
+DEBUG: {'monday': None, 'tuesday': 'Spanish8', 'wednesday': 'ArtB8', 'thursday': 'Spanish8', 'friday': None}
+DEBUG: room 201 being used at: 7 tuesday for Spanish8
+DEBUG: room 201 being used at: 7 wednesday for ArtB8
+DEBUG: room 201 being used at: 7 thursday for Spanish8
+DEBUG: ADDED  Spanish8  AT  7
 DEBUG: room 201 being used at: 1 monday for
 DEBUG: room 202 being used at: 1 monday for
-DEBUG: put Phys Sci in 203 1
+DEBUG: put Phys Sci9 in 203 1
 DEBUG: room 201 being used at: 2 monday for
 DEBUG: room 202 being used at: 2 monday for
-DEBUG: put Lang9 in 203 2
+DEBUG: put Lang99 in 203 2
 DEBUG: room 201 being used at: 3 monday for
-DEBUG: put ALG 2 in 202 3
+DEBUG: put ALG 29 in 202 3
 DEBUG: room 201 being used at: 4 monday for
-DEBUG: 4 Spanish1 not in morning/afternoon
+DEBUG: 4 Spanish19 not in morning/afternoon
 DEBUG: room 201 being used at: 5 monday for
 DEBUG: room 202 being used at: 5 friday for
-DEBUG: put Spanish1 in 203 5
+DEBUG: put Spanish19 in 203 5
 DEBUG: room 201 being used at: 4 monday for
-DEBUG: put US Hist in 202 4
+DEBUG: put US Hist9 in 202 4
 DEBUG: room 201 being used at: 6 monday for
 DEBUG: room 202 being used at: 6 monday for
-DEBUG: put BandHS in 203 6
+DEBUG: put BandHS9 in 203 6
 DEBUG: room 201 being used at: 1 monday for
 DEBUG: room 202 being used at: 1 monday for
 DEBUG: room 203 being used at: 1 monday for
-DEBUG: 1 Phys Sci teacher not available
+DEBUG: 1 Phys Sci9 teacher not available
 DEBUG: room 201 being used at: 2 monday for
 DEBUG: room 202 being used at: 2 monday for
 DEBUG: room 203 being used at: 2 monday for
-DEBUG: put Phys Sci in 205 2
+DEBUG: put Phys Sci9 in 205 2
 DEBUG: room 201 being used at: 1 monday for
 DEBUG: room 202 being used at: 1 monday for
 DEBUG: room 203 being used at: 1 monday for
-DEBUG: put Lang9 in 205 1
+DEBUG: put Lang99 in 205 1
 DEBUG: room 201 being used at: 3 monday for
 DEBUG: room 202 being used at: 3 monday for
-DEBUG: 3 ALG 2 teacher not available
+DEBUG: 3 ALG 29 teacher not available
 DEBUG: room 201 being used at: 4 monday for
 DEBUG: room 202 being used at: 4 monday for
-DEBUG: put ALG 2 in 203 4
+DEBUG: put ALG 29 in 203 4
 DEBUG: room 201 being used at: 3 monday for
 DEBUG: room 202 being used at: 3 monday for
-DEBUG: 3 Spanish1 not in morning/afternoon
+DEBUG: 3 Spanish19 not in morning/afternoon
 DEBUG: room 201 being used at: 5 monday for
 DEBUG: room 202 being used at: 5 friday for
 DEBUG: room 203 being used at: 5 monday for
-DEBUG: 5 Spanish1 teacher not available
+DEBUG: 5 Spanish19 teacher not available
 DEBUG: room 201 being used at: 6 monday for
 DEBUG: room 202 being used at: 6 monday for
 DEBUG: room 203 being used at: 6 monday for
-DEBUG: put Spanish1 in 205 6
+DEBUG: put Spanish19 in 205 6
 DEBUG: room 201 being used at: 3 monday for
 DEBUG: room 202 being used at: 3 monday for
-DEBUG: put US Hist in 203 3
+DEBUG: put US Hist9 in 203 3
 DEBUG: room 201 being used at: 5 monday for
 DEBUG: room 202 being used at: 5 friday for
 DEBUG: room 203 being used at: 5 monday for
-DEBUG: 5 BandHS teacher not available
+DEBUG: 5 BandHS9 teacher not available
 DEBUG: room 201 being used at: 7 tuesday for
 DEBUG: room 202 being used at: 7 tuesday for
-DEBUG: put BandHS in 203 7
+DEBUG: put BandHS9 in 203 7

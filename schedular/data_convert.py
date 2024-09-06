@@ -84,7 +84,7 @@ def add_column(dataframe, name: str):
     dataframe.loc[:, name] = Series(None for _ in range(len(courses))).values
 
 
-def precalculate_data():
+def convert_data():
     add_column(courses, "Periods")
     add_column(courses, "Rooms")
     add_column(courses, "Same")
@@ -93,7 +93,7 @@ def precalculate_data():
         teachers["Periods"][name] = get_periods(teacher["Periods"])
 
     for name, room in rooms.iterrows():
-        rooms["Periods"][name] = get_periods(room["Periods"]) # can be int or str
+        rooms["Periods"][name] = get_periods(room["Periods"])  # can be int grade or str
 
     for name, grade in grades.iterrows():
         new_sections = []
@@ -110,7 +110,7 @@ def precalculate_data():
         if isinstance(sections, float):
             courses["Sections"][course_name] = grades["Sections"][course["Grades"][0]]
         elif sections == "Same":
-            courses["Sections"][course_name] = ["A", "B"]  # TODO CLEAN
+            courses["Sections"][course_name] = ["A", "B"]  # TODO CLEAN up
             courses["Same"][course_name] = True
         else:
             courses["Sections"][course_name] = get_list(sections)
@@ -136,6 +136,9 @@ def precalculate_data():
                 raise ValueError("UNKNOWN ROOM TYPE", course["Room Type"])
 
         set_available_rooms()
+
+        # courses.rename(index={course_name: course_name + str(course["Grades"][0])}, inplace=True)
+
 
     debug(courses, rooms, teachers)
 
