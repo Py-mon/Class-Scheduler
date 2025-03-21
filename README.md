@@ -16,6 +16,9 @@ New Features:
 
 - If there is a grade with no sections, you can set it that way.
 
+- ![image](https://github.com/user-attachments/assets/736639d6-86a2-4670-90d6-9ca08c14c1be)
+
+
 ```
 8A
     monday  tuesday wednesday thursday   friday
